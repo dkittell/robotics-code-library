@@ -1,0 +1,149 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<block type="procedures_defnoreturn" id="o|lql`g/jQ2[BxYCIB0`" deletable="false" editable="false" x="50" y="50">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="80" w="160">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="9`y^D|@Db}#_TNuYd],h">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="linearOpMode_waitForStart" id="fvUpZpt/=Qqqj[(;0z{I">
+<next>
+<block type="controls_whileUntil" id="@7HX3Q6`w7JwzALBNkSY">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="{}K1N8Bh^:8hWD|hKmwM"/>
+</value>
+<statement name="DO">
+<block type="procedures_callnoreturn" id="RIfO_01Ig[1Is[`[AtY0">
+<mutation name="FirstTask"/>
+<next>
+<block type="procedures_callnoreturn" id="G}.PE{_/h`4,ifG`QbfA">
+<mutation name="Second Task"/>
+<next>
+<block type="procedures_callnoreturn" id="e5FOCsfcPOZYZO/7T+m7">
+<mutation name="Third Task"/>
+<next>
+<block type="telemetry_update" id="GQ=$5l[iq12O}Gxz)k-D"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="fYnwG3[o^HD-E;IH-@,|" x="52" y="287">
+<field name="NAME">FirstTask</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="controls_if" id="xXG9PAJ#oe^.7rr6zZk2">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id="$vcg20Q57)~LMx!)r`C2"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="_OP1^tQf8}FVD5a57nwT">
+<field name="COMMENT">Check a sensor and/or activate a motor or servo.</field>
+<next>
+<block type="comment" id="Q$`HiV/_B}Kylq;nP`6I">
+<field name="COMMENT">Do not loop or use sleep blocks as they would</field>
+<next>
+<block type="comment" id="3AyGl$IKBFS%7=P*nG/n">
+<field name="COMMENT">prevent the other tasks from running.</field>
+<next>
+<block type="comment" id="PGLkOGq.3B0LFHrw04Ur">
+<field name="COMMENT">Instead, check elapsed time, a sensor or a motor</field>
+<next>
+<block type="comment" id="#-Hz=[H*wlVx];sstN81">
+<field name="COMMENT">busy state and return so the other tasks can run.</field>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="lF{k5Bu[9X-FW%Va4p:g" x="54" y="503">
+<field name="NAME">Second Task</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="controls_if" id="Dx(6|OiK##qZN[Sb_#+`">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id="vT2f_gdVR*3`$LbAi#?Q"/>
+</value>
+<statement name="DO0">
+<block type="comment" id=";84OYI,9U9a=oVC7:Dsa">
+<field name="COMMENT">Check a sensor and/or activate a motor or servo.</field>
+<next>
+<block type="comment" id="=YOKBB017I+fd:Kb*;_H">
+<field name="COMMENT">Do not loop or use sleep blocks as they would</field>
+<next>
+<block type="comment" id="IeC8Nib=KbK?ypFS,TzM">
+<field name="COMMENT">prevent the other tasks from running.</field>
+<next>
+<block type="comment" id=":Xzd5TCTjDmz%;dxR.X{">
+<field name="COMMENT">Instead, check elapsed time, a sensor or a motor</field>
+<next>
+<block type="comment" id="p5}mIxP0zwU_L,P/~mTN">
+<field name="COMMENT">busy state and return so the other tasks can run.</field>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="VW~,QU3dI`rx*ZA)vx,z" x="53" y="724">
+<field name="NAME">Third Task</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="controls_if" id="b0tMqh*skZHB,,C_HXNa">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id="fTB1V@(n6ai~7{aIlQ-T"/>
+</value>
+<statement name="DO0">
+<block type="comment" id=";5tUY$P?6:VpT|_Z|]Q~">
+<field name="COMMENT">Check a sensor and/or activate a motor or servo.</field>
+<next>
+<block type="comment" id="q$-b,IT4ysl%/$PO_v99">
+<field name="COMMENT">Do not loop or use sleep blocks as they would</field>
+<next>
+<block type="comment" id="eelkt@fO|?e=8p2.pWL.">
+<field name="COMMENT">prevent the other tasks from running.</field>
+<next>
+<block type="comment" id="-fkM!TVD!?=-3Eu5{5E#">
+<field name="COMMENT">Instead, check elapsed time, a sensor or a motor</field>
+<next>
+<block type="comment" id="XU~!jKgp!swdwv@(#u,A">
+<field name="COMMENT">busy state and return so the other tasks can run.</field>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</xml><?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Extra><OpModeMeta flavor="AUTONOMOUS" group="" /><Enabled value="false" /></Extra>

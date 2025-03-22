@@ -1,0 +1,167 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" editable="false" x="50" y="50">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="32" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="dcMotor_setProperty_Direction" id="Sly%?82/uer6S;8P-cKD">
+<field name="IDENTIFIER">FrontRightAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"Front Right"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="TX/U_v9O!:9[u6o?23Jh">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="]gw1sZw9SO]@6H4}%$dC">
+<field name="IDENTIFIER">BackRightAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"Back Right"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="@$@8FtE/q-Kuh%HL8GcQ">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Direction" id="HbWD|V6lBt)`L)MMHeGA">
+<field name="IDENTIFIER">BucketServoAsServo</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"BucketServo"}</data>
+<value name="VALUE">
+<shadow type="servo_typedEnum_direction" id="Lo:|MaO4s(3*0pT@xx$j">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="+q=jJNEE7c~WBk=2_24n">
+<field name="IDENTIFIER">BucketServoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"BucketServo"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="+0wG,!Kqi}v%Mr[b~)~-">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="qaVV1jLlxpm]JB!:*(r!">
+<field name="IDENTIFIER">ElboServoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"ElboServo"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="c{Ts}1CQcZExv%u}Iv,P">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="crServo_setProperty_Number" id="jPVhUe{VI.M$a(,Vakgr">
+<field name="IDENTIFIER">armSparkAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"armSpark"}</data>
+<value name="VALUE">
+<shadow type="math_number" id=";J{Aw(4goM}nBO.Vzj-f">
+<field name="NUM">0.4</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="me?)i*:=aA$8G5tHg3.6">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="QV^lj#J9iX1FzoO]NDy@">
+<field name="NUM">550</field>
+</shadow>
+</value>
+<next>
+<block type="crServo_setProperty_Number" id="zYRa*TJ^zA3e8=B}dHeo">
+<field name="IDENTIFIER">armSparkAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"armSpark"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="GkG`u2zW4(]4_ij.gtY_">
+<field name="NUM">0.1</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="tU%PL+5`LR,0wL]vM+yW">
+<field name="IDENTIFIER">ElboServoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"ElboServo"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="{Q9|H!Qet/,,/+HA$uVm">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="W!@_o()PyGXsBcMAUFaU">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="m{2vof}xAc,5VHde3Ch}">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="pNxChv=`Rh=;YTT4aYMc">
+<field name="IDENTIFIER">ElboServoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"ElboServo"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="i0.Y|0RB[1rLb|_ojyaZ">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="W8sHYYI8c_Q?g7b66x$;">
+<field name="IDENTIFIER">BucketServoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"BucketServo"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="k,a~__QiU3rB[Jy(.T,g">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="+1gfwlmX|WTa!(93U2m1">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="{!`;o1H0;Z`RoIC3`W_X">
+<field name="NUM">5000</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="AUTONOMOUS" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>

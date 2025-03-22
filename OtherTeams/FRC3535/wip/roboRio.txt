@@ -1,0 +1,4 @@
+roboRio
+    http://169.254.208.241/#!/SystemConfig
+    http://10.35.35.2/#!/SystemConfig
+

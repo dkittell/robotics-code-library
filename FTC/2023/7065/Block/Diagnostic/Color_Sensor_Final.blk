@@ -1,0 +1,2900 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="IK+_Bj*4C_a;GW!B9k1E">Purple</variable>
+<variable id="yO`-L,8fAJi0z~K.PS^@">Green</variable>
+<variable id="|ui@SI!xwDDim7#TBuG~">mP</variable>
+<variable id="EB+uAmu4gofidEu.:B5Y">CurrentColor</variable>
+<variable id="}o2}ZdyokNk/*Qbp%]If">Red</variable>
+<variable id="0xk?w}eut~|n3qp%;K|!">ms</variable>
+<variable id="{c4vd@KeQMNKmL#:T?|`">Blue</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="80" y="75">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="45" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="dcMotor_setProperty_Direction" id=":2`M,M;[kD`w1T7T^xa_">
+<field name="IDENTIFIER">Back_LeftAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"Back_Left"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="V;i,v7`I*jUP$A/!3ByU">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="^+!XMTHj?F/Xkm[y)C(O">
+<field name="IDENTIFIER">Front_LeftAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"Front_Left"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="XXDO4{JzG|hlJwn/Il7g">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="variables_set" id="2~V%PThs_I$)z8?tMO%6">
+<field name="VAR" id="EB+uAmu4gofidEu.:B5Y">CurrentColor</field>
+<value name="VALUE">
+<block type="color_rgbToColor_Number" id=";VfeX@,XB8w]ydU[h5ga">
+<value name="RED">
+<shadow type="math_number" id="7uo_QBXHvioxJSn^1:7N">
+<field name="NUM">255</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="-[!peTr^k(*i-{zmoinS">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Red</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<value name="GREEN">
+<shadow type="math_number" id="qSAs0h%mrokdK=@r~yiF">
+<field name="NUM">0</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="nRj1P}+|lGux~xICfN$u">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Green</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<value name="BLUE">
+<shadow type="math_number" id=")%:._fGer=IlsGY]UdFg">
+<field name="NUM">0</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="_5%C!`(a:ZpU*m/2haJu">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Blue</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="variables_set" id="(NLNDovHEcSv|ux|?nGG">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+<value name="VALUE">
+<block type="logic_operation" id="e|$IVv]B:KF%JkXjiNC{">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="!([Dru=^+(ZW3eF:6QBg">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="color_getProperty_Number" id="P^}7u2Y-(%D[c1Y=5seQ">
+<field name="PROP">Saturation</field>
+<value name="COLOR">
+<block type="variables_get" id="k(cK`[;uao]NQ.`gTD,}">
+<field name="VAR" id="EB+uAmu4gofidEu.:B5Y">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="sJKvO4i1Z-7lQ5n%d(t5">
+<field name="NUM">0.4</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id=";cq^cvK5?UO.VYzN|g.,">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="Q~VB5QN6?Xw%5v=]!-|+">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="color_getProperty_Number" id="[KN@}RC*f:Ds{=4U61}Q">
+<field name="PROP">Hue</field>
+<value name="COLOR">
+<block type="variables_get" id="v{qi[P}8v@6TMO9_I@ip">
+<field name="VAR" id="EB+uAmu4gofidEu.:B5Y">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="3_1#T(027^ZH`r/.Q$JU">
+<field name="NUM">317</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="{4BX#!JhN6T6#=ng8:am">
+<field name="OP">GTE</field>
+<value name="A">
+<block type="color_getProperty_Number" id="33Fe2GB@E*t,)X$rOwH(">
+<field name="PROP">Hue</field>
+<value name="COLOR">
+<block type="variables_get" id="#-ejGXAhd{bQ]NwUUwch">
+<field name="VAR" id="EB+uAmu4gofidEu.:B5Y">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="Ofv(qPW]%A=ODV0:R%KQ">
+<field name="NUM">270</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="variables_set" id=":G*dv{tXFEj~lIzQ|LY*">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+<value name="VALUE">
+<block type="lynxI2cColorRangeSensor_getProperty_Number" id="qu$2+E%0_r;GGT)ZFv:4">
+<field name="IDENTIFIER">Color_SensorAsREVColorRangeSensor</field>
+<field name="PROP">Green</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="variables_set" id="g$P*0P=BTt~+XTH1dc*|">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+<value name="VALUE">
+<block type="lynxI2cColorRangeSensor_getProperty_Number" id="D[kEenB-!M9Nt!cd(}lm">
+<field name="IDENTIFIER">Color_SensorAsREVColorRangeSensor</field>
+<field name="PROP">Red</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="variables_set" id=")sf^GBN{ez2)|e|gVaux">
+<field name="VAR" id="{c4vd@KeQMNKmL#:T?|`">Blue</field>
+<value name="VALUE">
+<block type="lynxI2cColorRangeSensor_getProperty_Number" id="3SG%J?Bb$q5.ZC!wO[*A">
+<field name="IDENTIFIER">Color_SensorAsREVColorRangeSensor</field>
+<field name="PROP">Blue</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="variables_set" id="eu]]Y|.Famk4f%VU{$qc">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+<value name="VALUE">
+<block type="math_number" id="-G^6nk2Ktm{Z|q@S71Bi">
+<field name="NUM">0.5</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="VRK#:HWa:77U.jf5.RR6">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+<value name="VALUE">
+<block type="math_number" id="Q^bO.m6Qec.e26uPPi8F">
+<field name="NUM">3000</field>
+</block>
+</value>
+<next>
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="linearOpMode_sleep_Number" id="saauzB{xT.A/^:l{9AY^">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="%_gZliXw!Sh.tAAf)r_q">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="controls_if" id="9wBp-PvREVI,)sJKHRD@">
+<value name="IF0">
+<block type="logic_compare" id="LZ$J1s3Y58F/YVNjR;US">
+<field name="OP">GTE</field>
+<value name="A">
+<block type="variables_get" id="Te;u}k}L+wjKTVWtRc@6">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="m0#)$gXm2KLB7KudK?[b">
+<field name="NUM">10</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id=";{fe}.C6RV#|}`8K5YCs">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="MA{kX7YHL9#^^x14QJRU">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="sOboB8rpmh:KWJ1`_HbM">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="|avaF!(B2c=#OySOduCb">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="p[gy9c]x#45Vw^C93raJ">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="[-ofi$1L:UQW;:6|GhJ1">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="g4wtaimjR7-a3=PX]6T+">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="M6kB?tZ7)TpI|#,aMGVs">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="prm:#/z5^}|(ZH+G}1~F"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="telemetry_update" id="hjTk=-O%N#!pJpr;,3jy">
+<next>
+<block type="controls_if" id="{vdez(-`0uU/b!,;/CEt">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="7hVsyB9l:8`(.S(t6%OO">
+<field name="OP">GTE</field>
+<value name="A">
+<block type="variables_get" id="m8rn7]S,XLP{IIL(^DCb">
+<field name="VAR" id="{c4vd@KeQMNKmL#:T?|`">Blue</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="6uMggd|xVI:_Yx7K_LF)">
+<field name="NUM">7</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="o#)qWB/Gc[cj4yV?2:t4">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="$MO=JDp!4kWQBfCO(9Q4">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_single" id="R9?eUBIUB2CY*?lhVc2U">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="QrcL@y]K5W|{ZQOh8E_G">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="P.M*.n^1Zs^W~9[FRr/j">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="ezuL=f(GgPN).2EgNi{b">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="?R/b+l/)Y-yEK-+C@AV=">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="tpa?QKnX6j=mkyw])QoA">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="3I]7b[$_Frd]-mUYsyGs">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="?v,uma#!~M|]X*vQry!=">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="s6`h.FiO+xWPtz`y24#n">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="3tslW.bus0$%R6[aLC5,">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="z(!m1O[PhU^:ZsD}8Qql">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="3IQ0O/2)n{|zWhw=?GQX">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="z-Nxl9lw/@uG|y(e4zJ("/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="dcMotor_setDualProperty_Number" id="5o2A]-U/#q[h?)ws})%#">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id=";wKa2!g7kdY_!pUs{:/5">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="r-xuqSsO.c]Y}tw+[?oG">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="XRXN{O|E_uC1_JgWX}o8">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="@f07V=su_Auc6m2Af4p=">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="j8.lRivPd-8(r-ws:Ra.">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="?Oe:f$D-bjcMDx7*GVBo">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="8=j9~x7YV6xhkZCa6Uxz">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="FE:%io6JDA_:8f])Ny%L">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="Q_rTEh[jo0nzLG^abHYC">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="US[496t_DQrhqB7J-M0N">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="0S:VJU27WIsuG0Gum2W3">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="rLb`+;(m=*`-9;SF:FE:">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="u~LN~c}3};UFY0KSSFb2">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="tH)f9|VnQ8%U.ssoDl#B">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="$(|m6e_xh(OR]+xj1{}(">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="EwB0v2-;ZK{5$qg9@(M*"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="telemetry_update" id="}uX1^JJ22`n5x*gD~#TZ">
+<next>
+<block type="telemetry_addNumericData_Number" id="LXrtZO_p]3(sz16rv%O$">
+<value name="KEY">
+<shadow type="text" id="~t865YT1]}qRNY0Yf/me">
+<field name="TEXT">Red</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="J.|(nHCuVdl]4duzOaxp">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Red</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="SE6+49)1Nq6Clz5i^RuO">
+<value name="KEY">
+<shadow type="text" id="Zh],%9`3KiTM}y^So+)u">
+<field name="TEXT">Blue</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="B+~Om)/6J34G[m*:D77h">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Blue</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="bdU}kr)H23F)kQjC,HWL">
+<value name="KEY">
+<shadow type="text" id="p;qXHik+#`DxHF_e[%-B">
+<field name="TEXT">Green</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="RXkQN0@90%g`S?9vs[c{">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Green</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="|nS^X=i7SDSCxBAHhcDM">
+<next>
+<block type="linearOpMode_sleep_Number" id="Po_aP+C0c1t1-!tXo}v8">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="Y{Wv0(20cxAf+*Ss{doN">
+<field name="NUM">5000</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="math_single" id="N}t*P!j)=jm/Xk.~aP[Z" x="-574" y="504">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="h$^)pq}nKYYz.:1J^w$:">
+<field name="NUM">9</field>
+</shadow>
+</value>
+</block>
+<block type="variables_get" id="/_3|Nycoe_X?u{l0mwM}" x="351" y="558">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+<block type="logic_operation" id="=gJXgm}(Vp-X#H8p.uv+" x="487" y="617">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="SM)rDGGe1O,T{lG^gMi@">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="color_getProperty_Number" id="2S{8LB)lISH:kl7!Myeh">
+<field name="PROP">Saturation</field>
+<value name="COLOR">
+<block type="variables_get" id="`Y54?;:n~X81y%o)^T.[">
+<field name="VAR" id="EB+uAmu4gofidEu.:B5Y">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="o+{H9vivZ$[}ZX0VJ$XA">
+<field name="NUM">0.4</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id="#?y*)b6vsfO,fj%kiFh:">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="_zWJH)2)VcASo]hS/WO]">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="color_getProperty_Number" id="#ZDxvk.4;sXzN9deW9{4">
+<field name="PROP">Hue</field>
+<value name="COLOR">
+<block type="variables_get" id="qGwZFyr~AH*E|hH@h+hm">
+<field name="VAR" id="EB+uAmu4gofidEu.:B5Y">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="msjd7N+tD`(=u;7Jy-E3">
+<field name="NUM">201</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="@tyr3#=BT|JP3Y#={]-#">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="color_getProperty_Number" id="=wcG557+Z/Abbt64-_]t">
+<field name="PROP">Hue</field>
+<value name="COLOR">
+<block type="variables_get" id="p*RI769/nq7%Wl`QmJFm">
+<field name="VAR" id="EB+uAmu4gofidEu.:B5Y">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="SzL9JA^P_ITe1hBM6)nx">
+<field name="NUM">154</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+</block>
+<block type="controls_if" id="=bQcW?J{u2gC@j}eS[(^" x="1565" y="655">
+<mutation elseif="1"/>
+<value name="IF0">
+<block type="variables_get" id="Chzz+32-n%0p;O:or@!v">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="4Sl!u$DQ%#5hFf|FJg%G">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="-rP#)Q3_t2nr6J:ifX)w">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="dIqyH%-XFH+=B7]7brs(">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="P39Rw^Q6)ZF]X[!e9E5A">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="lp?5%kB6;b~):TBkpT.a">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="+TEL(g8D=62wBHpf_:au">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="Yw;aZ9ff:zBULpQ-i,uZ">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="$3K(EJ1v::EtvK{Xrb@n">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="H.[J}JHZj:4n9k(9IsE9">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="N)[+TK_v4s4hy$~Nzk~6">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="IFIkcpQ;6#5PW~_VObzC">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="}53Zf:LpL(P$p;6Y0.*u">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="sNIyx3bBiSrC;o%ys[rD">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_negate" id="xJ]iCKst^2*6)PYV`?ka">
+<value name="BOOL">
+<block type="variables_get" id="pBf2EE2zuM@W%qV`=AmV">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="controls_if" id="sMFd]0dcY|T9L*{jY#VV">
+<mutation elseif="1"/>
+<value name="IF0">
+<block type="variables_get" id="`YXV73%t9J?eZ)HXq-4=">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="fOi0MU06N@3c8/x$5amz">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="O_Gu66HDy{%$GV1gu2)Q">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_single" id="Z$zU`A3bmI}f00EvmTdX">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="STxmW1dgL9m0=ha%sdgt">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="A@4$XUc5aB8W_z$!dX$`">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="l_Im^Zl}to3B-60ZiU}Q">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="HL/:+)+K[+M}C`BA*ukp">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="2h$]=a?AX^$]S*GbQyDV">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="Q(gGS5:Y.DI=SJR8)Cbm">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="{kzcYG^{603-~4[ln|w=">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="}`FGwK]W1^A,+:u/@tWS">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="alZD.+6_8I}R_)(.boU(">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="u2/PM3Y8$EnjPB*L4Ew!">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="]@|=$1Xj,^X#ok7QLN3o">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="$ct$$=%,/V-:`KDW4q8g">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_negate" id="kdJr!xwdkij1K00Sl(JT">
+<value name="BOOL">
+<block type="variables_get" id="i^FOY^iUR9E5Q0OOGaVc">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="controls_if" id="5A_q9b~no~,5$%rm|;T6">
+<value name="IF0">
+<block type="variables_get" id="^fSD%{8UFt/YW5*eo5nj">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="zewMIx^NTU9rYFc/xC7S">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="(xy^j@X1_!#o{P}F$Z#X">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="h@Gb2xx7ckgYKf=#@rjy">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="5=TgL|_{z7$C/qp7SY,s">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="Xk%Bb|h~{*c]]9[HDP):">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="!~1%7jpxnbUGmSCubek8">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="l_,%1(QrfSmYmSC9F8E3">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="dzW2D3=0iTZINJ.j8Qy^">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="tU1=cY]DXwfU5^WWy7z`">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="R|d$H5cOf%?4%T%@:64p">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="XcaiA[7{CTTCfGsk4Oov">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="bDV38Aqx(H!,su^cXT@5">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="8BxCC8kXn9_p|[3VSiw!">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+<block type="logic_operation" id="(f?_=]v-a1Z4CVZC(bc0" x="498" y="718">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="dAtTn}7`Sw{{Dl|PNs/K">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="color_getProperty_Number" id="V^S:Mo`pRUS)BJ{O2QWk">
+<field name="PROP">Saturation</field>
+<value name="COLOR">
+<block type="variables_get" id="WEkTI0IK!|/T-WR6]IX;">
+<field name="VAR" id="EB+uAmu4gofidEu.:B5Y">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="!Ht3Li~^b5IUe(?1Ofig">
+<field name="NUM">0.4</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id="x9^Jq5ke9HD|2GW)K]_!">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="u+%@Da1Zt2GX,ddb|:{k">
+<field name="OP">GTE</field>
+<value name="A">
+<block type="color_getProperty_Number" id="4vItC4unmK1PKRmdHDHn">
+<field name="PROP">Hue</field>
+<value name="COLOR">
+<block type="variables_get" id="4bW(ujf[A{7$3{O7xIuq">
+<field name="VAR" id="EB+uAmu4gofidEu.:B5Y">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="keH7:L1Qw44,{[tDw4lt">
+<field name="NUM">14</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="+H)lHb2wHwi!;{`(`?Rd">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="color_getProperty_Number" id="cc/k/J[[E;3KaPHskMn:">
+<field name="PROP">Hue</field>
+<value name="COLOR">
+<block type="variables_get" id=";*`1RpU3sU[!K-g3@G?H">
+<field name="VAR" id="EB+uAmu4gofidEu.:B5Y">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="j2e!q,;,|n*;c15!V00h">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+</block>
+<block type="linearOpMode_sleep_Number" id="rF3gLfr3G/1,)0v8T@55" x="-857" y="850">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="bL.U`zgxZOKlkjMnuO,C">
+<field name="NUM">5000</field>
+</shadow>
+</value>
+<next>
+<block type="controls_if" id="Jt@ymr)7:No-ZAKse67q">
+<mutation elseif="1" else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="GetwJGh.OFW3`~P7!5D?">
+<field name="OP">GT</field>
+<value name="A">
+<block type="variables_get" id="zSr@yH@R;4[8tHQ,.bLc">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+<value name="B">
+<block type="variables_get" id="gbdxv[6[=OkQ,wTX)~xl">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="B/)8~X[t?vZhc{*ga-IW">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="#bs,X(CE*_B.5*sN#`94">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="Lr8i/-|fTWxdROS$.P$Q">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="D8`i03P{cGs;kWs;U]/9">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="[[Ur0P4Y@D]_zI~UYFa@">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="caAA=~9)z85#-+ILP`g%">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="Jm8Y$QlRa;8}D:L$c`o8">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="dgU#a[GyVlZ?;7[yI!Do">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="$N}Jyu,JW{/vcUY$`xQ5">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="1gQshyTQ7*U_JYAL$^YP">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="D3q[9P`i~Xr/.m`8M7Tn">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="j_nwTnBatN1oE6pD99rT">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="0f|CWS%UE:93vM@n/[8e"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_compare" id="D1)_LH)ACCGOhj+j3s3j">
+<field name="OP">GT</field>
+<value name="A">
+<block type="variables_get" id="WlN$!WHbCs]pO[^FiiiQ">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+<value name="B">
+<block type="variables_get" id="e*0}JTD_ZJ*=Z-I3f]%.">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="dcMotor_setDualProperty_Number" id="4si.t*9]+YZZ/Cg}$ExL">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id=":(!^ufXvX7hyW]#`$Klo">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="]i594gww4kTMlfacr8^0">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="yvP[24SPfl}og`akx)~?">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="Q)PKwW66|=IYNhbg}%9P">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="r$!*odhMr+5qKx!-WJqx">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="1We-;3):XySq4|`ig9!g">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="Z#hK6;uNrS]6?j(m0Adc">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="2_ync2C)_)}|OGXiL+uJ">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="_V4SvFb;)^NwK@a|3MEu">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="]*Dk,}QmIRq*fR#)r~VU">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="e^eh8Zxkca42NXqh_)Zk">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="g3F(N9{YrrI_r3TLpcN^">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="L6+2}7Js}u}Ayq5aX2mY">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="$O:`b./lx91-G+gy/GDZ">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="Ue9A()|uG-X7gYxSm*]4"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="controls_if" id="+MCfM3,krLDd8u*8rwff">
+<mutation elseif="1" else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="2_Nm*]l[Mn`Lkn3CNpw9">
+<field name="OP">GT</field>
+<value name="A">
+<block type="variables_get" id="~oXbs_eVZE=iVhG{3~Tj">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+<value name="B">
+<block type="variables_get" id=";hxhjny}[b(zO9MVOQvS">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="Mg7QM#2`-/ozi/*V;UpB">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="pOcjQiM4*/!1Yl(m?TnY">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="aVIiV)YQ!egxGBR-uI.b">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="X8?9yCRk;ScN8Q@.byFb">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="*}Of#*V)|fDvxeh-yJn2">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="IJ4__nVBW@R%}6nOPVwM">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="~~(Bv2(AV}?:DTu4F2D?">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="p;NG:hA9y{ED#TaV20uW">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="wqw8n?c,v8$k9)5YR4Xs">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="%7C.[]sJI,[ae=raxzw!">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="b3mQ=/~wc{~L+lwSv,|z">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="odjDW!epw4/LO0Wg682w">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="K-r7TsH#_IFfw^vh-+LE">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id=")^|m7C6o3@Z9ag]wvwTB"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_compare" id="X+f6%Kc1n,Mw|xtPra#x">
+<field name="OP">GT</field>
+<value name="A">
+<block type="variables_get" id="otYGsQQ)*/Q5vUx+;A_N">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+<value name="B">
+<block type="variables_get" id="uh(6z}Ns=_Bs=^Oj{@d{">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="dcMotor_setDualProperty_Number" id=",?%WHIWaW$|gJUj$~`^t">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="/xcm%7tGD#snu(u;`Uys">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="PR?T7/AVX4)Ju#NM=woX">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id=";d:4FTR;+#-f,L3.W|%U">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="!vg77(IiuZ8.LT8jJla_">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="zqY^5=K[5ae(J?ai!S;.">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="0GAc*YIZmnFjysffTcgk">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="FxAflAn+LW!ef~)K.$hk">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="*eECQVs-0-CQB7S`N]FE">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="7b.;_*t_{=n;qt^C8%Ho">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="(n2AhUbd7f*FuwrwhRK+">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="~]t*ko]x8A0Xc1ki}d6#">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="N^$|l@0EEyb?bWU@z(@b"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="controls_if" id="(O+e8-x@DBc+YtPOLk)x">
+<mutation elseif="1"/>
+<value name="IF0">
+<block type="logic_compare" id="%?ta~)1X=%/Sf/y-;XAx">
+<field name="OP">GT</field>
+<value name="A">
+<block type="variables_get" id="@||;)RLz*[3w-!t5LF;e">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+<value name="B">
+<block type="variables_get" id="z]*fj*^8Zy)?TB9pVZpD">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="#:lUZ+xbR@fx}CIF]ED!">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="S01n#$HmaxnX^/tLNoEX">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="gXPU$UHNbWEx4D{h^%Vx">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="2R6LOSj43xF)AfMv}^gi">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="2#6^Lo6*idF{n_j]=a`h">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="-00K@a,sG{pnk7Z~RVdz">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="p}aNMy).}{cmPfCGs#v:">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="Iz.,5!9Y%7dErm4f]Gk^">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="5tAM|,?R`7I(VwS#:b6Z">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="aRb?~_!P{g,IY}0X2pQf">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="spa{mK[`IF3@8{j|?;_]">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="x7g_:5C|A|OwPn=mZP%o"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_compare" id="%kgot6QFxxQFKfMH9xDW">
+<field name="OP">GT</field>
+<value name="A">
+<block type="variables_get" id="*b?7D.LNrVz5FaDiB{H}">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+<value name="B">
+<block type="variables_get" id="~zauz@:?%VOY}4(er%9|">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="dcMotor_setDualProperty_Number" id="ivsvW6oJn#yo!pk8TPY1">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="F~c-s4OGq9#YI!lO3cgc">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="3^bjOT)`-cAFeY_Lkj88">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="#Z`VWY2aj_]g:gYWSW#3">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="uPt!fAU|xNfcO7$//p@V">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="Gs}@}NHrd$p@/O^_Ac52">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="=+CtVBsu+)n^54]pD^#:">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="HqIB;*po4|-W3(6Z@2F=">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="*.8$+qwg}E{4Nk^TIYIK">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="l_%3)?jGdM4X;nB`swv[">
+<value name="MILLISECONDS">
+<shadow type="math_number" id=",rL2`H_PEkD;!j|kPtna">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id=";=y9Bag*1)860!a(027s">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="tBucW8`G)v*60C89.eT*"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</statement>
+<next>
+<block type="telemetry_addNumericData_Number" id="IG[`X@2oCXr-!/o.zmb-">
+<value name="KEY">
+<shadow type="text" id="z#e:N:@@7~7Px:aWVPK{">
+<field name="TEXT">Red</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="P{hI9)!{=oyfM0,RUtQ%">
+<field name="NUM">123</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="@hGLJ+~BQ1N4hmV3`z2|">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Red</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="/-2JUhjT^E`vTWxne.l!">
+<value name="KEY">
+<shadow type="text" id="1J~%+eJsuT^ruVDtH7y?">
+<field name="TEXT">Blue</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="QxIpW|b}kh`XYrB@5H-W">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Blue</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="iI[eKE$QDiQfL_[5c~(D">
+<value name="KEY">
+<shadow type="text" id="gB6Du{,`q}ViWx+[l#b-">
+<field name="TEXT">Green</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="hjdh#$%2g[h%fHNO/]~X">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Green</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="%dJ;`seE.6ax0:AKqrB0">
+<next>
+<block type="linearOpMode_sleep_Number" id="fyqqfwvzM95{]`/N?aIj">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="OVP+MCuXBg12x:r=!tz:">
+<field name="NUM">5000</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+<block type="linearOpMode_sleep_Number" id="eRxr6`WYXCZT=mH{%_b:" x="-277" y="836">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="Pixa,~:t7,u$sN9tNLb:">
+<field name="NUM">5000</field>
+</shadow>
+</value>
+<next>
+<block type="controls_if" id=";G62}.Fi+.}0WSdgcK+)">
+<mutation elseif="1" else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="OrLz.ES{;}vo:1L#)NR;">
+<field name="OP">GT</field>
+<value name="A">
+<block type="variables_get" id="X+`3?C_9JpkGmTW8z_b[">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+<value name="B">
+<block type="variables_get" id="/fxm}Y4hIhT2MRb@?/C;">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="e7EpLLt!5a}7P|,VTsb;">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="+8-:}Hz%/6[G{mynqf62">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="]z-W=zsLUJ0F^{g9[8e6">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="P/e-+rJ_{u/r#L[$f6G2">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="_+3T|v9RD=6W_|*L`{y,">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="G0%9Yt%_buu9$GT!12Jb">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="[~RtF[GLDk-j{jmC79(r">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="G8BvIAsmr(J^g7k7rePF">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<value name="IF1">
+<block type="variables_get" id="XP{jvbR9A)B{`s{L~hlE">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+<statement name="DO1">
+<block type="dcMotor_setDualProperty_Number" id="$}*GT=RHp;kvyIJxN98c">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id=";xW}s8li?p2rqgxRg+kL">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id=",)}5M7=)jvV#2IPluBgt">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="YQ+MpYL(F=7Vx+007X%1">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="Q8em|gbX8XSuRha}MfXi">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="0Fc#h=O?!dgXlox}@:EU">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="eWO8~|wolY`LTmg7b[^t">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="r0uXR}5W%eQN[YS,%CoO">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="4`(sv:hXQ2t.0Zfs}r4t">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="}6dX(HwRUN1cL,3vQKY?">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="d8armf}VXNR5-Ihn$)k1">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="F0_L2QT7SG[A+{7WB;:d">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="eg$:]@hn@TK+2FI7[uLa">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="dcMotor_setDualProperty_Number" id="fmI%IBpg[dcDKE*EsBQ7">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="9uN}qGejg;!Zj/zWsY+p">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="G9:Oab:|Sy)e_IMTTJ6I">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="7sKeY@J:gyD)=+VCyW*V">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="4F_:b{Nk=4,Hyr0[OTy0">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="?_@k}i7KE*HJ+m)$JVHq">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="-BB[n(t23{z_Kt}`zy]I">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="{pEMx||ynu]A!Rz!;u7z">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+<block type="variables_get" id="8UN~HVR{ygnwXd)m}+v|" x="265" y="973">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+<block type="variables_get" id="~P?lvy[_zh!rEY]]V/{Q" x="574" y="978">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+<block type="controls_if" id="}G.~m[[zpO-^?JEH}-?K" x="1178" y="1073"/>
+<block type="controls_if" id="Fxj(34*~w*F/uG}F]7?w" x="492" y="1203">
+<value name="IF0">
+<block type="logic_compare" id="N!zn|}dm#48COkRD^ABN">
+<field name="OP">GTE</field>
+<value name="A">
+<block type="variables_get" id="2.)J]4hpEf$dFiPaLC{0">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="1h386s{,KjA!aj]0$V.(">
+<field name="NUM">12</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="aGK-]N=F9/#Zi/i{m1*:">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_single" id="$/Za@rGB^w^5..D!wIj{">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="ffBnOHEP66inXS~+S4uQ">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="R937cA*`}/@Vx|b,6Dop">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="7JxsQi6/o(1lJoNb84t]">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="C7^.-@I~,ex*TlJq4J99">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="hf0F-{KmM!^.9#|sdf-~">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="g$sn$hHH:q!c7W*lRN`R">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="4JCM+5O*qmZc6Ud)G3OI">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="h^zp/8}j8ZetD1eW0Mkj">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="g=VgMf#BS/i;!-m?{_Uj">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="QrPu(YdnTwx*J8FnZOq?">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="%E`R4/MaYnRJ5[u_ZW;7"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="R{c}R?`+R8AQX^L8]5gZ">
+<value name="IF0">
+<block type="logic_operation" id="$~XRCA|0OYE53H`ugkRS">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_negate" id="iyn-8DDhCQR+UKI[L5W!">
+<value name="BOOL">
+<block type="variables_get" id="xNdJ#ds^n..kR2G$|Xr_">
+<field name="VAR" id="{c4vd@KeQMNKmL#:T?|`">Blue</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id="A!t.-3kAjtl{*+apx5{J">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_negate" id="(7cduA_qzS@%o?-G{v:{">
+<value name="BOOL">
+<block type="variables_get" id="*UMMQh+x!5yU}4hUr,~M">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_negate" id="e#KHrH;-rKsn4y]zt?c|">
+<value name="BOOL">
+<block type="variables_get" id="_^eBW:a_RnDRx0Y(YoQe">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="qH8tAq@q-oF^|lZ%OMiU">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="j]ngs.~AAZWP#kKM+r`8">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="N02gDNFqXM3:k977UTh!">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="I0=*e4FwxQ]}[[H1)Am{">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="Yb2}[AEF`qJgY?hMd[aC">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="=)g$+.{vr641;CW=twyL">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="telemetry_update" id="gXHAmmswWfG^cXinw{Gb"/>
+</next>
+</block>
+</next>
+</block>
+<block type="logic_boolean" id="Hthp2QO^/x/n}f#qPVg_" x="400" y="1368">
+<field name="BOOL">TRUE</field>
+</block>
+<block type="controls_if" id="4xM|!;kOw-8K0VI8bu;J" x="1260" y="1543">
+<mutation elseif="1" else="1"/>
+<value name="IF0">
+<block type="logic_operation" id="6`JU$V(}fK@Bl/?[]S%J">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="E3v[B#cD.^r*LX69Zd;Z">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="D%bp;jS2%BYLnX7R/nO|">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+<value name="B">
+<block type="logic_boolean" id="2)j9?FCliPR1x40jbCiS">
+<field name="BOOL">TRUE</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id="`[]vp;RcuJ{X|*l=j#[c">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="M~9=_=_rh+RoH`[#X`XK">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="xeecDiwe}N0eq`+q~}o-">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+<value name="B">
+<block type="logic_boolean" id="~M]h-(+j|*eAoNz+FPDD">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="oEy:;n7ai_mts.zH.%:U">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="NTsGM#Po|5`kEIv/bp|G">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+<value name="B">
+<block type="logic_boolean" id="{Bh(P4#yIqO`Twp|O}]P">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="e@4Mxu-pBWb=~fe$O7=c">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="_@$8-vY;B^Ks!!n0w6Vn">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="wlR^P/.=@:rAXH6HAu=n">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id=",}!0$uc.WO`$V#0K0?.;">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="O`/BgKTzhv-1lFK|T}By">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="q2T}J.g8Vz:TY%2_5)y7">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="#{^PYc7OdE^/Qk!_=#Nn">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="-zyz(mSvg4uP_xQ-Ns;g">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="gbN6z(b.D$4$*Qh=U8wg"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_operation" id="?)A}MPs2wBcjSZbAKf=M">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="h9IlG7z)Usqa-Sm*qMI^">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="v}@FR+p`4Hn#tcnG$*[l">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+<value name="B">
+<block type="logic_boolean" id="whC(q!h5V#47N}5~1rq7">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id="}/F:14a]I!ne(Ahg@`dN">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="c1;Fi`zo(}Ij;H:NjsF3">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="G4+{HoT:K1eE=;S3qZDe">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+<value name="B">
+<block type="logic_boolean" id="#K^`o0$f6eJx$m20IfQ]">
+<field name="BOOL">TRUE</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="Jl^G}W1yYED1d+Z?N(v1">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="$WxI=`[fR7qrH{RNIOAr">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+<value name="B">
+<block type="logic_boolean" id="a@Yz%2w,Ah#,;h=$Hv-+">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="dcMotor_setDualProperty_Number" id="O0h[C2=jOzBl?PG|It@=">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="hM?xXsY(u|6In5,9n`:2">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="|JX-M{vp=9f[pb=y,dM$">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="tpTY)T[J_0|M/8@N(j*;">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="Z)*8d$fSH-@DF*)mxilZ">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="gFV`Hl.^jMqWwi/ZI8V3">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="`jB:VqA^|O+^OViWpue*">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="FKSPNNy0}!;Wp{vfI1Cd">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="24d]s/cHB/^jGCMqK{Pn">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="J,qOMBO3?dwDLZ2ulfX$">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="P@T1V884#v}R9:V6)_ex">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="g`AfqDt-;H?m@+*R2Vwc">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="Ot*V3:nc(S.c1*j3ifYe">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="QS=HH{#z6dc%2Ogbd/[1">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="5P1Hn@}(c`?z83iqtL$%">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="]h381B)e`@7rm;4KMykF">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="[)Z`NAdb9DBUu#_QWmKv">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="$)P~6Yq{K.p]Tj~{`r(/">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="Z}Q^Nwl~-Vb}9]3:]f`o"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="controls_if" id="a?QnVc:Fc@!1?@OjJ5:0">
+<value name="IF0">
+<block type="logic_operation" id="rZ;dVLl!IV2A[,:WC1F1">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="fUF$=vn7G4V?+|a;Xgum">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="*+KHl@5ZyXE$69SWoop[">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+<value name="B">
+<block type="logic_boolean" id="%+;Q2[ILqv1)BV#KM}Xq">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id="8$~9H)bq6)TjfZ%_3,==">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="My9vFCu053$bV.-:z3I+">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="$Y}x3QuY!Ry$xIuLg.qV">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+<value name="B">
+<block type="logic_boolean" id="07gbC=qIo%l:[TkbBPD5">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="D6wD/e=q)w2C:lDTsurT">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id=";AGb=wiX]JBPGK5yI1w0">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+<value name="B">
+<block type="logic_boolean" id="!G(#Oi7?NM{mwf$Qurb@">
+<field name="BOOL">TRUE</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="xn.N3A^y`OGWY7_F/501">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="9mEPcfj,@$OuEcJ58:D9">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="jFyTgA7rdFhVT3;`oW~l">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="~Y)X1DRZ:emo6jGz)s8j">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="62mMiPG|5Id$zrnP/PE7">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="njiekp=)iJ$I)+R%b~b:">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="dV)F,hp]uQ#pDn(o{lHx">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="A_LK;8jh{w?Kg`h7*W2*">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="h_~3p%CekcN(6H;@xadb">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="4IuUGg0+kp|qA0E:uH6C">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="P*}a_(gAk[$;@QdueVs(">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="^s)}][oB8;l6}x]l6`~p">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="2eF#1FwwLkBDI(w}+xqE"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="telemetry_update" id="Ww_Qujphb8NL[G=+iFTm"/>
+</next>
+</block>
+</statement>
+<next>
+<block type="telemetry_update" id="me:Z^8Z2L/MYa:IKD2,(">
+<next>
+<block type="telemetry_addNumericData_Number" id="J9Z!]#J1eKkac[qjnvPl">
+<value name="KEY">
+<shadow type="text" id="jn=5taMj[]t.AX)3c1WU">
+<field name="TEXT">Red</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="4m5p!LrR/__%|v*@QNsC">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Red</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="OJi#;o3++dzv9fC{lult">
+<value name="KEY">
+<shadow type="text" id="rjL4_nkaCT=;NwQwK8P.">
+<field name="TEXT">Blue</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="{[Z0{QfuGyL)O8oD(XM!">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Blue</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="+a+TdEbX3:+vOeM#1^!N">
+<value name="KEY">
+<shadow type="text" id="=cw/mh__z8^Pb:A[TWwl">
+<field name="TEXT">Green</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="{Ou{vcmgLUJ}VWQ=6X:|">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Green</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="E~X60AyB?je1u%@VDf)l">
+<next>
+<block type="linearOpMode_sleep_Number" id="JPcW]*TCU1~6R+,7.WEk">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="bPo+X+y|6eL5|Tm!O**4">
+<field name="NUM">5000</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+<block type="linearOpMode_sleep_Number" id="*E:8`kj#MVI9i?r}g_OU" x="-411" y="1709">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="=%Y*yYhqDh8-Jv=e9lR[">
+<field name="NUM">5000</field>
+</shadow>
+</value>
+<next>
+<block type="controls_if" id="YXFORsx;AcFYH7b=E_9n">
+<mutation elseif="1" else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="[-uhoq[7!_@hL?H;T.vN">
+<field name="OP">GT</field>
+<value name="A">
+<block type="variables_get" id="SkvY|RjMMvylxB~l$5SL">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id="#}*5N$5[O|@)f}k4nT!.">
+<field name="OP">AND</field>
+<value name="A">
+<block type="variables_get" id="@p*SkzIOTUY`lJ^j#J4A">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+<value name="B">
+<block type="variables_get" id="1KV_!!C4Y[CNhaT^.,Bh">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="OS?]Pa2aD+94M=|0QC$4">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="5!)NxwWVN%:NN4WJ{^3m">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="PZc@Z/J[=^7A_^;+n/FM">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="DU3v[vEB`38:%vp;6IQf">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="!M_(C::Pax}$L`UnIv/B">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="/Rr0~R):pO3v+xeXQsi!">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id=")6Z%AArfwC(yw~AZQ5QL">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="b+KJ2QU7,GWP-Rt+Z.@s">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="RO$$J?!~#sYb@f6L;byx"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_compare" id="c@ILrjI-T76#_sQ51NRo">
+<field name="OP">GT</field>
+<value name="A">
+<block type="variables_get" id="a4[=g{7~-xhy2#w|jyRD">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id="6H0O|J8888Ndeq*otmDv">
+<field name="OP">AND</field>
+<value name="A">
+<block type="variables_get" id="GpB}mKM7@?Q+`~^[!]WD">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+<value name="B">
+<block type="variables_get" id="#4rk)+KZ4zH8zS/Mtz/5">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="dcMotor_setDualProperty_Number" id="t:XWk9wv{X#M_[Un5G/3">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="SVDw%a^Mn/SV+2Ex/91$">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id=".luqZCb}5$6{O!^qulir">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="cX[1M:+^YV6T=k%{J^E7">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="_x!-ZvNT0P$oR$iWNUHw">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="zG%b@=(+^|M=7xW^~///">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="w1u*b5=m[s+pINoHR`Rv">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="4t@x!)kQ-V63N;,M32oH">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="Q34U4.Y2SGnuL;)S_nBO">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="V[yOw|]vAiuqU|{a1=oN">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="{-g[0Um?V_KNx)4~1fhl">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="?EvuIY]#9Oa$YC4ZA~RG">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="+@6EqAT@UaveS+bOH/G/"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="controls_if" id="8+=Md0|?HI76$Aqq.X@j">
+<value name="IF0">
+<block type="logic_compare" id="0w}VTFR.VSdx:$Wb[m1P">
+<field name="OP">GT</field>
+<value name="A">
+<block type="variables_get" id="0.)?-Q9!hfGkI$29~ufh">
+<field name="VAR" id="IK+_Bj*4C_a;GW!B9k1E">Purple</field>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id="!76hcMPo74i2K-cut/,x">
+<field name="OP">AND</field>
+<value name="A">
+<block type="variables_get" id="EtmBZZZ|[3WP[9O(5f/1">
+<field name="VAR" id="}o2}ZdyokNk/*Qbp%]If">Red</field>
+</block>
+</value>
+<value name="B">
+<block type="variables_get" id="g;Ya2,h,!d1atIse6x5Y">
+<field name="VAR" id="yO`-L,8fAJi0z~K.PS^@">Green</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="(vz_yuxM#=`U:$D?*Ag{">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Back_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Back_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Back_Left","IDENTIFIER2":"Back_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="L~ktBivbp,Pxx#%e#;UQ">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="P%.Uk8%8w]wnpIsW:gb!">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id=";-$Off9x%ePLM46[.784">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="v#7Fy]%*jMgYrE)]rI{7">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">Front_LeftAsDcMotor</field>
+<field name="IDENTIFIER2">Front_RightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front_Left","IDENTIFIER2":"Front_Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="Rw).],F6`I3PKjjx63QR">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="n!lE($7b5%9C*M){SgYs">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="zJgx9a{gfG;t#dOV7pL2">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="Eru(I?K{k_]|V|Y8E$9h">
+<field name="VAR" id="|ui@SI!xwDDim7#TBuG~">mP</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="E34I%9[n-Z%unJ!zK=^y">
+<value name="MILLISECONDS">
+<shadow type="math_number">
+<field name="NUM">1000</field>
+</shadow>
+<block type="variables_get" id="31DLAmoF_j(2J,/IHr((">
+<field name="VAR" id="0xk?w}eut~|n3qp%;K|!">ms</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="`6f6yBh(qGWHDB|QC_yH"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="AUTONOMOUS" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>

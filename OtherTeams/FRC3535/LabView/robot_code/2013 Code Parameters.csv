@@ -1,0 +1,13 @@
+Std RPM=4200
+Std Pitch=33.875
+Auton RPM=4200
+Auton Pitch=33.25
+Wing RPM=4200
+Wing Pitch=32.75
+Tow1 Offset RPM=0
+Tow1 Offset Pitch=-5.5
+Tow2 Offset RPM=-700
+Tow2 Offset Pitch=-9
+Tow3 Offset RPM=-1400
+Tow3 Offset Pitch=-11
+CornerShot Pitch=-3.75

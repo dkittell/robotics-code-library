@@ -1,0 +1,63 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="Shooter_Output_Voltage " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="528" y="92"/>
+	</widget>
+	<widget field="Shooter_Output_Current " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="529" y="60"/>
+	</widget>
+	<widget field="Shooter_Temperature" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="548" y="31"/>
+	</widget>
+	<widget field="limelight_Valid_Target" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.ProgressBar">
+		<location x="512" y="201"/>
+		<height>58</height>
+	</widget>
+	<widget field="Battery_Voltage" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="522" y="167"/>
+	</widget>
+	<widget field="limelight_Adjust_Right" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="256" y="281"/>
+	</widget>
+	<widget field="limelight_Adjust_Left" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="263" y="254"/>
+	</widget>
+	<widget field="Venom_Shooter_Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="542" y="2"/>
+	</widget>
+	<widget field="limelight_Skew" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="294" y="227"/>
+	</widget>
+	<widget field="limelight_Latency" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="283" y="200"/>
+	</widget>
+	<widget field="limelight_Area" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="297" y="175"/>
+	</widget>
+	<widget field="limelight_Y" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="314" y="149"/>
+		<width>183</width>
+	</widget>
+	<widget field="limelight_X" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="313" y="123"/>
+		<width>184</width>
+	</widget>
+	<widget field="limelight_Interface" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="274" y="97"/>
+		<width>222</width>
+	</widget>
+	<widget field="limelight_Stream" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="284" y="72"/>
+		<width>213</width>
+	</widget>
+	<widget field="limelight_PipelineName" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="252" y="46"/>
+		<width>245</width>
+	</widget>
+</dashboard>
+<live-window>
+	<widget field="Ungrouped" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<location x="0" y="0"/>
+	</widget>
+</live-window>
+</xml>

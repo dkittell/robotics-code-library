@@ -1,0 +1,104 @@
+<xml version="1.0">
+<dashboard>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
+		<location x="960" y="64"/>
+		<width>450</width>
+		<height>400</height>
+		<property name="Camera Choice" value="USB Camera 2"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
+		<location x="488" y="64"/>
+		<width>450</width>
+		<height>400</height>
+		<property name="Camera Choice" value="USB Camera 1"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
+		<location x="16" y="64"/>
+		<width>450</width>
+		<height>400</height>
+		<property name="Camera Choice" value="USB Camera 0"/>
+	</static-widget>
+	<widget field="Camera 3 Brightness" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="960" y="480"/>
+		<property name="Font Size" value="16"/>
+	</widget>
+	<widget field="Camera 2 Brightness" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="488" y="480"/>
+		<property name="Font Size" value="16"/>
+	</widget>
+	<widget field="Camera 1 Brightness" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="16" y="480"/>
+		<property name="Font Size" value="16"/>
+	</widget>
+	<widget field="Current Encoder Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="479" y="635"/>
+		<property name="Font Size" value="16"/>
+	</widget>
+	<widget field="JS1 Right Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="510" y="596"/>
+		<property name="Font Size" value="16"/>
+	</widget>
+	<widget field="JS1 Left Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="516" y="556"/>
+		<property name="Font Size" value="16"/>
+	</widget>
+	<widget field="JS2 Right Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="736" y="596"/>
+		<property name="Font Size" value="16"/>
+	</widget>
+	<widget field="JS2 Left Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="736" y="556"/>
+		<property name="Font Size" value="16"/>
+	</widget>
+	<widget field="Pressure Switch" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="736" y="518"/>
+		<property name="Font Size" value="16"/>
+	</widget>
+	<widget field="Compressor Current" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="490" y="519"/>
+		<property name="Font Size" value="16"/>
+	</widget>
+	<widget field="Battery Life" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="1184" y="0"/>
+		<width>128</width>
+		<height>48</height>
+	</widget>
+	<widget field="Battery Voltage" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="992" y="0"/>
+		<width>176</width>
+		<height>48</height>
+		<property name="Font Size" value="24"/>
+	</widget>
+	<widget field="Alliance Color" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="800" y="0"/>
+		<width>177</width>
+	</widget>
+	<widget field="Position" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="828" y="28"/>
+		<width>151</width>
+	</widget>
+	<widget field="Limit Switch High" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="496" y="2"/>
+	</widget>
+	<widget field="Limit Switch Low" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="355" y="2"/>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="666" y="2"/>
+		<property name="Text" value="Connection Indicator"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.ConnectionIndicator">
+		<location x="704" y="16"/>
+	</static-widget>
+	<widget field="Auto Modes" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="16" y="606"/>
+	</widget>
+	<widget field="Auto Selector" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="20" y="576"/>
+		<width>252</width>
+		<height>27</height>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>

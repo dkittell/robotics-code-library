@@ -1,0 +1,58 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="Valid Target" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="337" y="90"/>
+		<width>197</width>
+		<height>110</height>
+	</widget>
+	<widget field="Limelight Latency" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="18" y="236"/>
+	</widget>
+	<widget field="Limelight Skew" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="26" y="201"/>
+	</widget>
+	<widget field="Limelight Valid Target" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="23" y="170"/>
+	</widget>
+	<widget field="limelight_Interface" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="287" y="43"/>
+		<width>283</width>
+		<height>22</height>
+	</widget>
+	<widget field="limelight_Stream" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="289" y="13"/>
+		<width>277</width>
+	</widget>
+	<widget field="Limelight Area" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="37" y="123"/>
+	</widget>
+	<widget field="limelight_PipelineName" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="15" y="91"/>
+	</widget>
+	<widget field="Limelight Y" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="32" y="55"/>
+	</widget>
+	<widget field="Limelight X" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="32" y="28"/>
+	</widget>
+	<widget field="Auto choices" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="589" y="59"/>
+	</widget>
+	<widget field="Auto Selector" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="594" y="32"/>
+		<width>307</width>
+	</widget>
+</dashboard>
+<live-window>
+	<widget field="Ungrouped" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<widget field="AnalogGyro[0]" type="Gyro" class="edu.wpi.first.smartdashboard.gui.elements.Compass">
+			<location x="6" y="16"/>
+			<height>150</height>
+			<width>250</width>
+		</widget>
+		<location x="0" y="0"/>
+		<width>262</width>
+		<height>172</height>
+	</widget>
+</live-window>
+</xml>

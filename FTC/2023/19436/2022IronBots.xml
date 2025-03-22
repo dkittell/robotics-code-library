@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Robot type="FirstInspires-FTC">
+    <LynxUsbDevice name="Control Hub Portal" serialNumber="(embedded)" parentModuleAddress="173">
+        <LynxModule name="Control Hub" port="173">
+            <RevRoboticsCoreHexMotor name="Intake" port="0" />
+            <RevRoboticsUltraplanetaryHDHexMotor name="RightDrive" port="1" />
+            <RevRoboticsCoreHexMotor name="Arm" port="2" />
+            <RevRoboticsUltraplanetaryHDHexMotor name="LeftDrive" port="3" />
+            <Servo name="DuckSpinner" port="0" />
+            <LynxEmbeddedIMU name="imu" port="0" bus="0" />
+            <RevColorSensorV3 name="colorSensor" port="1" bus="0" />
+        </LynxModule>
+    </LynxUsbDevice>
+</Robot>

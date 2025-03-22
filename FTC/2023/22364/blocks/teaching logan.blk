@@ -1,0 +1,262 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="7ttO}yNU^UCPaR,,|D__">turnSpeed</variable>
+<variable id="V5]r;2ab+87~[Wo`=F/;">driveSpeed</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="50" y="50">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="45" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="comment" id="Jh/;L$n@JuX8AQJDFCul">
+<field name="COMMENT">Put loop blocks here.</field>
+<next>
+<block type="telemetry_update" id="exvivmft-pX$n!1,8Ea$">
+<next>
+<block type="dcMotor_setProperty_Direction" id="R!:NwSPLE!*Ts9R`q(Cw">
+<field name="IDENTIFIER">leftarmmotorAsDcMotor</field>
+<field name="PROP">Direction</field>
+<comment pinned="false" h="103" w="377">You will have to determine which motor to reverse for your robot.  In this example, the right motor was reversed, so that positive applied power makes it move the robot in the forward direction.</comment>
+<data>{"IDENTIFIER":"left arm motor"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="*[./GuzB+zZ,k.G,QfQU">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="-7ac(1s*:+-]vG~0MIyQ">
+<field name="IDENTIFIER">left_driveAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"left_drive"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="==Isb`o,[$$v|C0OkP[C">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty" id="1-:Mm]s(z%tuoXKC?R~V">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">left_driveAsDcMotor</field>
+<field name="IDENTIFIER2">right_driveAsDcMotor</field>
+<comment pinned="false" h="101" w="394">The Y axis of a joystick ranges from -1 in its topmost position to +1 in the bottom position. We negate (i.e. reverse the positive/negative sign of) these values, so that pushing the joystick up will create maximum forward power.</comment>
+<data>{"IDENTIFIER1":"left_drive","IDENTIFIER2":"right_drive"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="zt1!nj/DBbYl?6}w`.Wd">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="P3Ga*PzxK0NLsdumsdR8">
+<field name="OP">NEG</field>
+<value name="NUM">
+<block type="math_arithmetic" id="R:V)wg*+]M0qg5?u,WbN">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="b(?@Cztltr$XMPbok?0=">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickY</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="Fk7+~ryc45eFU.W+%Az_">
+<field name="VAR" id="V5]r;2ab+87~[Wo`=F/;">driveSpeed</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="f6FfvPT$vV~SXB{Hy_:$">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="o])}dElZYFk?]JMzW0Wq">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="ZuhwjcU.PaP#lX)9KvPr">
+<field name="VAR" id="7ttO}yNU^UCPaR,,|D__">turnSpeed</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="a`Z_hKp7DiDQbHj8C7+p">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="f(*+:|.*/r%{KT/Kmp:a">
+<field name="OP">NEG</field>
+<value name="NUM">
+<block type="math_arithmetic" id="4D^??$^SkC#Ht$;|ho^P">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="ygf$hqTJ_G(9,yF8!tu;">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickY</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="hTsU?$WzV!]?Moe/EIBe">
+<field name="VAR" id="V5]r;2ab+87~[Wo`=F/;">driveSpeed</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="V/?%L0!gWMJJ5g*;emi]">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="cFZgV~G{qILt][bH}ne0">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="y?.Te@]QvSe})tgBKwmX">
+<field name="VAR" id="7ttO}yNU^UCPaR,,|D__">turnSpeed</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="*5#q4ug=O/AJ6iUa[5Hy">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">left_driveAsDcMotor</field>
+<field name="IDENTIFIER2">right_driveAsDcMotor</field>
+<data>{"IDENTIFIER1":"left_drive","IDENTIFIER2":"right_drive"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="VNj(b6D,S#zR?Rvc)!dF">
+<field name="NUM">3</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="qDld6:PE/rGV88UkE4qR">
+<field name="NUM">2</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="HxIe,IZv2j{^dTrHq%#V">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="wfrLVYDup.`fA%_EzaXR">
+<field name="NUM">2000</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="PJ#YKPZtA$!PxFpLXBPS">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">leftarmmotorAsDcMotor</field>
+<field name="IDENTIFIER2">left_driveAsDcMotor</field>
+<data>{"IDENTIFIER1":"left arm motor","IDENTIFIER2":"left_drive"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="7f[3PK;}ocW90D3N`Gra">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="*i1%+q=([-l!}(]*?#YC">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="TELEOP" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>

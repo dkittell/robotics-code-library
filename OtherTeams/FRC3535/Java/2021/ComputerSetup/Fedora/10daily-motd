@@ -1,0 +1,100 @@
+#!/bin/bash
+clear
+
+# Functions - Start
+# Function to convert IP Subnet Mask to CIDR
+mask2cdr() {
+    # Assumes there's no "255." after a non-255 byte in the mask
+    local x=${1##*255.}
+    set -- 0^^^128^192^224^240^248^252^254^ $(((${#1} - ${#x}) * 2)) ${x%%.*}
+    x=${1%%$3*}
+    echo $(($2 + (${#x} / 4)))
+}
+
+# Function to get the the Network IP
+networkIP() {
+    IFS=. read -r i1 i2 i3 i4 <<<${1}
+    IFS=. read -r m1 m2 m3 m4 <<<${2}
+    printf "%d.%d.%d.%d\n" "$((i1 & m1))" "$((i2 & m2))" "$((i3 & m3))" "$((i4 & m4))"
+}
+# Functions - Stop
+
+#lsb_release -a
+OS=$(cat /etc/fedora-release)
+# echo "$OS $OSCode $OSVer"
+
+sCPU=$(nproc)                                                                                                                                           # Get number of processors
+sRamGB=$(cat /proc/meminfo | grep MemTotal | cut -d ":" -f 2 | tr -d '[:space:]' | sed 's/.\{2\}$//' | awk '{$1=$1/(1024^2); print int($1+0.5),"GB";}') # Get amount of RAM in GB
+
+# If amount of RAM is less than 1 GB get the amount of RAM in MB
+if [ "$sRamGB" == "0 GB" ]; then
+    sRamGB=$(cat /proc/meminfo | grep MemTotal | cut -d ":" -f 2 | tr -d '[:space:]' | sed 's/.\{2\}$//' | awk '{ foo = $1 / 1024 ; print foo " MB" }')
+fi
+
+sRamUsage=$(free -m | awk 'NR==2{printf "%s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }')       # Get RAM usage
+nUsersLoggedIn=$(users | wc -w)                                                         # Get number of users logged in
+sProcessorType=$(lscpu | grep op-mode | cut -d ':' -f2 | sed 's/^[ \t]*//;s/[ \t]*$//') # Get Processor Type (32 bit or 64 bit)
+# nProcessorLoad=$(top -bn1 | grep load | awk '{printf "%.2f\n", $(NF-2)}' ) # Get Processor/System Load
+
+# get the load averages
+read one five fifteen rest </proc/loadavg
+
+nProcesses=$(ps aux | wc -l) # Count number of processes running
+# Variables - Stop
+
+banner=$(echo "$(date +"%A,%e %B %Y, %r")\n")
+banner=${banner}$(echo "\n")
+banner=${banner}$(echo " Firmware:\t\t$(uname -r)\n")
+banner=${banner}$(echo " OS:\t\t\t$OS\n")
+banner=${banner}$(echo " Hostname:\t\t$(hostname | tr '[:upper:]' '[:lower:]')\n")
+banner=${banner}$(echo " Server Uptime:\t\t$(awk '{print int($1/86400)" days "int($1%86400/3600)" hours "int(($1%3600)/60)" minutes "int($1%60)" seconds"}' /proc/uptime)\n")
+
+banner=${banner}$(echo "\n System load:\t\t${one}, ${five}, ${fifteen} (1, 5, 15 min)\n")
+banner=${banner}$(echo " CPU:\t\t\t$sCPU\t\tProcesses:\t$nProcesses\n")
+banner=${banner}$(echo " Memory (RAM):\t\t$sRamGB\t\tUsage:\t\t$sRamUsage\n")
+banner=${banner}$(echo " Users logged in:\t$nUsersLoggedIn\n")
+
+banner=${banner}$(echo "\n Network Information\n")
+
+# Get Network Information - Start
+netAdapter=$(ifconfig | grep 'inet' -B1 | grep -v 'inet' | grep -vi 'loopback' | awk '$1!="inet" && $1!="--"{print $1}' | cut -d ':' -f1)
+for val in $(echo $netAdapter); do
+    netIP=$(/sbin/ip -o -4 addr list $val | awk '{print $4}' | cut -d/ -f1) # Based on network adapter get the internal IP Address
+    netIPv6=$(ifconfig $val | grep 'inet6' | grep 'global' | awk '{print $2}' | cut -d/ -f1 | tr '\n' ' ')
+    netMTU=$(cat /sys/class/net/$val/mtu)                    # Based on the network adapter get the MTU
+    netMask=$(ifconfig "$val" | sed -rn '2s/ .*:(.*)$/\1/p') # Based on the network adapter get the subnet mask - Debian 8
+
+    if [ -z "${netMask}" ]; then
+        netMask=$(ifconfig "$val" | grep "Mask:" | cut -d ' ' -f13) # Based on the network adapter get the subnet mask - Debian 9
+    fi
+
+    if [ -z "${netMask}" ]; then
+        netMask=$(ifconfig "$val" | grep "netmask" | cut -d ' ' -f13) # Based on the network adapter get the subnet mask - Debian 9
+    fi
+    # echo $netMask
+
+    netCIDR=$(mask2cdr $netMask)         # Calculate the CIDR format
+    netWork=$(networkIP $netIP $netMask) # Get the network IP
+
+    #  netCIDR=$(ipcalc $netIP/$netMask | grep "Netmask:" | cut -d "=" -f2 | cut -d " " -f2 | tr -d '[:space:]')
+    #  netWork=$(ipcalc $netIP/$netMask | grep "Network:" | cut -d "/" -f1 | cut -d " " -f4 | tr -d '[:space:]')
+
+    # Report out the server information defined the variables above
+    banner=${banner}$(echo "\n  Adapter:\t$val\n")
+
+    if [ ! -z "${netIPv6}" ]; then
+        banner=${banner}$(echo "  IP v6:\t$netIPv6\n")
+    fi
+
+    banner=${banner}$(echo "  IP v4:\t$netIP\n")
+    banner=${banner}$(echo "  Mask:\t\t$netMask\n")
+    banner=${banner}$(echo "  CIDR:\t\t$netWork/$netCIDR\n")
+    banner=${banner}$(echo "  MTU:\t\t$netMTU\n")
+
+done
+
+# Report the disk/volume space
+banner=${banner}$(echo "\n Disk Space Information\n")
+banner=${banner}$(df -hTP | grep 'Filesystem\|ext4' | awk '!$2{getline x;$0=$0 x}{printf "\t%-32s %-15s %-8s %-8s %-8s %s\n",$1,$7,$3,$4,$5,$6}')
+
+echo -e "$banner"

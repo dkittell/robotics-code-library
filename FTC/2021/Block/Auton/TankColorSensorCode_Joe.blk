@@ -1,0 +1,403 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="qb[C90iVm@p3=u,K:8On">mP</variable>
+<variable id=",FA94Es].QQn;;*,3vhJ">CurrentColor</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" editable="false" x="50" y="50">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="32" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="variables_set" id="tPW,J#[zOrfI;)PV(Ga5">
+<field name="VAR" id="qb[C90iVm@p3=u,K:8On">mP</field>
+<value name="VALUE">
+<block type="math_number" id="sf2M+up@U,H8AA}V]~BG">
+<field name="NUM">0.5</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="uOpusp%5.f4o9jP^y*WQ">
+<field name="IDENTIFIER">mBackLeftAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"mBackLeft"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="blan5RPCaG*Nvp1h!B[n">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="?J;(`HhvN2N:-l,61#18">
+<field name="IDENTIFIER">mFrontLeftAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"mFrontLeft"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="|s13NVIX?BqF4mZwSY~V">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="w*?Xa^-g)wiMWdEHh[+i">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">mFrontRightAsDcMotor</field>
+<field name="IDENTIFIER2">mBackRightAsDcMotor</field>
+<data>{"IDENTIFIER1":"mFrontRight","IDENTIFIER2":"mBackRight"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="b5P)R{D+VbTg.C=PZ]Kq">
+<field name="VAR" id="qb[C90iVm@p3=u,K:8On">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="Po0NLt-P_/[%t$QWf/zv">
+<field name="VAR" id="qb[C90iVm@p3=u,K:8On">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="D)AB@%@lmuR)5HCUTe3Q">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">mFrontLeftAsDcMotor</field>
+<field name="IDENTIFIER2">mBackLeftAsDcMotor</field>
+<data>{"IDENTIFIER1":"mFrontLeft","IDENTIFIER2":"mBackLeft"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="|/oaBgg#%ow!om~7y4|6">
+<field name="VAR" id="qb[C90iVm@p3=u,K:8On">mP</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="AxxV~s)!GS~iu53:GC|`">
+<field name="VAR" id="qb[C90iVm@p3=u,K:8On">mP</field>
+</block>
+</value>
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="D7=W5(B4;5xH`,4C-*hY">
+<field name="COMMENT">This code stops the robot when the color blue is shown</field>
+<next>
+<block type="controls_whileUntil" id="0aOroMkcDb^WsrxzrQ3Q">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="Te8@ypDa~7H*1DmNy^j?"/>
+</value>
+<statement name="DO">
+<block type="variables_set" id="X:+(d`bgpb(x[x4[5:nd">
+<field name="VAR" id=",FA94Es].QQn;;*,3vhJ">CurrentColor</field>
+<value name="VALUE">
+<block type="color_rgbToColor_Number" id="dn[?w`8OIZ9ki@C_)7Rb">
+<value name="RED">
+<shadow type="math_number">
+<field name="NUM">255</field>
+</shadow>
+<block type="lynxI2cColorRangeSensor_getProperty_Number" id="#zFcydWxaV_Ir%T?rXW#">
+<field name="IDENTIFIER">Color_SensorAsREVColorRangeSensor</field>
+<field name="PROP">Red</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<value name="GREEN">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="H?WZDXrZG#S3(*{iKV8u">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Green</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<value name="BLUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="colorSensor_getProperty_Number" id="!_[]72?i*p*e*4W58-!o">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<field name="PROP">Blue</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="controls_if" id="x1`omDKQ$qMAgpdYcc5p">
+<value name="IF0">
+<block type="logic_operation" id="89.4U?3=mQaBCl_[Rj{F">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="~vfd*;xH[}OBu4tdL[!A">
+<field name="OP">GTE</field>
+<value name="A">
+<block type="color_getProperty_Number" id="SKONUIN/wz%?Fzk%NPb[">
+<field name="PROP">Saturation</field>
+<value name="COLOR">
+<block type="variables_get" id=":UqIvj05tMx#s?(H`QPZ">
+<field name="VAR" id=",FA94Es].QQn;;*,3vhJ">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="-:s._,97NwK!IHKWE,6t">
+<field name="NUM">0.6</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id=";P75HNqOT+cpjFaJdZav">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="Tj]RssFkqeZ)A-`,Y~j5">
+<field name="OP">GT</field>
+<value name="A">
+<block type="color_getProperty_Number" id="lSF7$jz$E.S`=6[$1y`k">
+<field name="PROP">Hue</field>
+<value name="COLOR">
+<block type="variables_get" id="xwUWyXUpEB^+@QukDAn=">
+<field name="VAR" id=",FA94Es].QQn;;*,3vhJ">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="]patm}U3vq]Mhb}!0$x{">
+<field name="NUM">210</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="KKNIlxCN;}aBb#V6eQ*B">
+<field name="OP">LT</field>
+<value name="A">
+<block type="color_getProperty_Number" id="qK/]_wo/(ye@9CV].(!k">
+<field name="PROP">Hue</field>
+<value name="COLOR">
+<block type="variables_get" id="XC,^~#L+^AmxA!@1f=)e">
+<field name="VAR" id=",FA94Es].QQn;;*,3vhJ">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="bLS:wR]G_(,/GFf4j%Ei">
+<field name="NUM">275</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setDualProperty_Number" id="8w{YU:S|m67miviV+M/I">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">mFrontRightAsDcMotor</field>
+<field name="IDENTIFIER2">mBackRightAsDcMotor</field>
+<data>{"IDENTIFIER1":"mFrontRight","IDENTIFIER2":"mBackRight"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id=",29K]B__uOkWrM.^cB+e">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="aIVK|ik?c^}=sC4:dH:C">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="Q/.t!DJ2fVjWOW^l*=^5">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">mBackLeftAsDcMotor</field>
+<field name="IDENTIFIER2">mFrontLeftAsDcMotor</field>
+<data>{"IDENTIFIER1":"mBackLeft","IDENTIFIER2":"mFrontLeft"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="Ky2tpnDqzcJU[Kz+1|/q">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="9H)4n/]M01KP48cX#%FZ">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="colorSensor_enableLed_Boolean" id=":@{;h_NT8y;3Hz19%y_x">
+<field name="IDENTIFIER">Color_SensorAsColorSensor</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+<value name="ENABLE">
+<shadow type="logic_boolean" id="S?r+rWe)YM#aV0sD*9#q">
+<field name="BOOL">FALSE</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="telemetry_update" id="0*Ov|_n_TRNyzurVVR*C"/>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="comment" id="c_}8*(B5A6epFAbLLwpc" x="743" y="352">
+<field name="COMMENT">This is for green!</field>
+</block>
+<block type="logic_operation" id="]N,0[b{WSmzA{zEi9[1z" x="750" y="390">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="5ZWYIhjs!1*TFhW^gus9">
+<field name="OP">GT</field>
+<value name="A">
+<block type="color_getProperty_Number" id="0CuD8R6u%Jn%r6,!XYWG">
+<field name="PROP">Hue</field>
+<value name="COLOR">
+<block type="variables_get" id="wx360)t8T9j//?YYU]~{">
+<field name="VAR" id=",FA94Es].QQn;;*,3vhJ">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="8:Ws;+{,5O@zKu)#MH,S">
+<field name="NUM">81</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="V8j7x$G/|s;*zsQVyB~;">
+<field name="OP">LT</field>
+<value name="A">
+<block type="color_getProperty_Number" id="DXOi`#+XB|EnE2r}HQA0">
+<field name="PROP">Hue</field>
+<value name="COLOR">
+<block type="variables_get" id=",`yi(wqRYRl*BLg0EZ/U">
+<field name="VAR" id=",FA94Es].QQn;;*,3vhJ">CurrentColor</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="n5X94}%]Y2/#$~:54|4~">
+<field name="NUM">140</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+<block type="comment" id="@IZp3p(Yj]tI%XaFJzIp" x="788" y="747">
+<field name="COMMENT">This shows color and distance on phone.</field>
+<next>
+<block type="telemetry_addNumericData_Number" id="9{:+u0Sd$7.dr{UgeknB">
+<value name="KEY">
+<shadow type="text" id="hz:y}{VT=!nn/s{lyujp">
+<field name="TEXT">key</field>
+</shadow>
+<block type="text" id="u7[88D@%lHhd[,gZ^7@]">
+<field name="TEXT">Blue</field>
+</block>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="*YI|fi(L.TqkhE(0chh0">
+<field name="NUM">123</field>
+</shadow>
+<block type="lynxI2cColorRangeSensor_getProperty_Number" id=":):H#:_w^7Sz(Y#vwev#">
+<field name="IDENTIFIER">Color_SensorAsREVColorRangeSensor</field>
+<field name="PROP">Blue</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="`]n+JtcM{cNj[F^V7Hx1">
+<next>
+<block type="telemetry_addNumericData_Number" id="8aRUDZB/lsW(T)?N@VN/">
+<value name="KEY">
+<shadow type="text" id="(Z6n*$V8Gr/(x18t?%`r">
+<field name="TEXT">key</field>
+</shadow>
+<block type="text" id="bxKQZcPB1L=k!CNm^sv-">
+<field name="TEXT">Distance</field>
+</block>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="IY4~TVSx?mZWF*~n%]f7">
+<field name="NUM">123</field>
+</shadow>
+<block type="distanceSensor_getDistance" id="iH[Y_zd@V$]-4Ho](Nj?">
+<field name="IDENTIFIER">Color_SensorAsDistanceSensor</field>
+<data>{"IDENTIFIER":"Color_Sensor"}</data>
+<value name="DISTANCE_UNIT">
+<shadow type="navigation_typedEnum_distanceUnit" id="y/b8D]=Y@0XjOBQji2et">
+<field name="DISTANCE_UNIT">INCH</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="px-R|_^;Qm}UZ.@#xP.H">
+<next>
+<block type="linearOpMode_sleep_Number" id="PJj,}`8mwXU%5ps:QfNx">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="n.#aSR$]d[xP:YUQ7I4h">
+<field name="NUM">2000</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="AUTONOMOUS" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>

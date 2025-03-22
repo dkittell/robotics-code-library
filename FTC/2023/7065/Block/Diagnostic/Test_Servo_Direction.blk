@@ -1,0 +1,247 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="PTc2?d[xvP;.49v~L~EE">sP</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="0" y="83">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="45" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="crServo_setProperty_Direction" id="`bc.TejvvWBuk[O`?HyR">
+<field name="IDENTIFIER">sFrontLeftIntakeAsCRServo</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"sFrontLeftIntake"}</data>
+<value name="VALUE">
+<shadow type="crServo_typedEnum_direction" id="zyVSNUXt;-`({VWHMA,1">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="crServo_setProperty_Direction" id="3q@7Z~xS94SHdz.974m#">
+<field name="IDENTIFIER">sBackLeftIntakeAsCRServo</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"sBackLeftIntake"}</data>
+<value name="VALUE">
+<shadow type="crServo_typedEnum_direction" id="Mx(Kky8S[~XrWN2BL_nr">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="crServo_setProperty_Direction" id="mp]I/pfD,@+iJv/cMUn*">
+<field name="IDENTIFIER">sFrontRightIntakeAsCRServo</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"sFrontRightIntake"}</data>
+<value name="VALUE">
+<shadow type="crServo_typedEnum_direction" id="-EpC|IN_$Prh+h63So#0">
+<field name="DIRECTION">FORWARD</field>
+</shadow>
+</value>
+<next>
+<block type="crServo_setProperty_Direction" id="e7DS4q(.5*;%NBBh4rYP">
+<field name="IDENTIFIER">sBackRightIntakeAsCRServo</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"sBackRightIntake"}</data>
+<value name="VALUE">
+<shadow type="crServo_typedEnum_direction" id="[bF#tn|9H%##y/fq%t[D">
+<field name="DIRECTION">FORWARD</field>
+</shadow>
+</value>
+<next>
+<block type="variables_set" id="[i4t-z,s1bnO+oyAot7:">
+<field name="VAR" id="PTc2?d[xvP;.49v~L~EE">sP</field>
+<value name="VALUE">
+<block type="math_number" id="WAM()W]rUdlrnQQ.HL)y">
+<field name="NUM">0.8</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="controls_if" id="lT.-P?V#%_Q:+AMC3yBe">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="X%k?ViS3Q*k:e2h/St!L">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">X</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="crServo_setProperty_Number" id="YCK$|6h887Bd$2(Z1z^F">
+<field name="IDENTIFIER">sFrontLeftIntakeAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"sFrontLeftIntake"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="kDZgOLpCI+(Z?50%!5wG">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="*-fNEX~B)IrS?g`oWc7|">
+<field name="VAR" id="PTc2?d[xvP;.49v~L~EE">sP</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="crServo_setProperty_Number" id="xBTC$#s@}[M+Yz-yn.S5">
+<field name="IDENTIFIER">sFrontLeftIntakeAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"sFrontLeftIntake"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="NptCxk,[J__Js=*D@mX`">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="U:LUgK~JgTgYzl.bGRZ(">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id=".9MKu@*{.Vf8Cu.2]LI?">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">Y</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="crServo_setProperty_Number" id="F;[`LfT)of9;F|#iuBaD">
+<field name="IDENTIFIER">sFrontRightIntakeAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"sFrontRightIntake"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="UW7TQ(%-Nqt^j#GIx_Ai">
+<field name="VAR" id="PTc2?d[xvP;.49v~L~EE">sP</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="crServo_setProperty_Number" id="Px?Fn9Ibo6{fN)0p8Hj5">
+<field name="IDENTIFIER">sFrontRightIntakeAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"sFrontRightIntake"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="@iRfUGTd%I1~/YW{UP#{">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="!TL@KGRZH,@SR8fOBtFq">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="v)Gah6k1ZMvBcPJUt}8o">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">A</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="crServo_setProperty_Number" id="xr$r:6tUeP}42%]ZW~cZ">
+<field name="IDENTIFIER">sBackLeftIntakeAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"sBackLeftIntake"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="n[9[~+z|+|_%-|iaOTYe">
+<field name="VAR" id="PTc2?d[xvP;.49v~L~EE">sP</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="crServo_setProperty_Number" id="k}K`?*95*dxXf|onvXx9">
+<field name="IDENTIFIER">sBackLeftIntakeAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"sBackLeftIntake"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="+t2:]-2R4|tte!@*gjWG">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="l?`]/OtA0Ds3v@s`).GT">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="BE%A1HvXIzk4JOQBUZn?">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">B</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="crServo_setProperty_Number" id="=5jaPF7bZ7J(RuEmOm;P">
+<field name="IDENTIFIER">sBackRightIntakeAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"sBackRightIntake"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="wzn/0_=A}%bSDwCuph1l">
+<field name="VAR" id="PTc2?d[xvP;.49v~L~EE">sP</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="crServo_setProperty_Number" id="5QyUx]#,tbo|InJlWr^`">
+<field name="IDENTIFIER">sBackRightIntakeAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"sBackRightIntake"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="}L7)9:CzIXg[+n%,e}9,">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml><?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Extra><OpModeMeta flavor="TELEOP" group="Diagnostic" /><Enabled value="false" /></Extra>

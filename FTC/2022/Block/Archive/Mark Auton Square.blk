@@ -1,0 +1,77 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" editable="false" x="50" y="50">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="32" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="-(e0h5XGs;?x#aW[-g+M">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">FrontLeftAsDcMotor</field>
+<field name="IDENTIFIER2">BackLeftAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front Left","IDENTIFIER2":"Back Left"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="`F%?E%}-$yNhn:,zK3UM">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="`o#W-;`c,obHr|~@1`IW">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="6uoQ)YdY/*~zmI9v-I1)">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">FrontRightAsDcMotor</field>
+<field name="IDENTIFIER2">BackRightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front Right","IDENTIFIER2":"Back Right"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="=]wg:_]iSYv=!mu1cQHh">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="vS5HE}Wt1D_P4c^22B#8">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="v1haZTuXuWUN/.v1z%:=">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="/{|Dka$|;=:~-3qY}h`M">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="AUTONOMOUS" group="" />
+<Enabled value="true" />
+</Extra>

@@ -1,0 +1,6 @@
+172.16.128.72:5809
+
+Ethernet Port is PPOE
+
+limelight.local:5801
+http://10.35.35.11:5801 - Change Configuration

@@ -1,0 +1,994 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="|eYHX!e]||6Wf.N4c4Ba">Gear</variable>
+<variable id="6{=6A,oh,X-Rxh@LY!{w">Dpaduplast</variable>
+<variable id=".Q5e`Ixs!QuWsU3~C%F:">Dpaddownlast</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" editable="false" x="64" y="50">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="32" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="dcMotor_setProperty_Direction" id="6KuZ`E6?X@EW)jEGAD+U">
+<field name="IDENTIFIER">FrontRightAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"Front Right"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="W{~2dY|.5|p{iX9Fd:$Z">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="Cag7mg]1Cep*Qdw*LFNl">
+<field name="IDENTIFIER">BackRightAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"Back Right"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="r.S=DH0I_uo?~O6F^6Vy">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_RunMode" id="oWn.o-wzaE+Y$2nyRzvm">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">FrontLeftAsDcMotor</field>
+<field name="IDENTIFIER2">BackLeftAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front Left","IDENTIFIER2":"Back Left"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id="Cuqg5-Y1`6.LX.iBwN;^">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="9uYah^ne4W+N6ejxuVCB">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_RunMode" id="W{dGol}$(T^?%FYr~eu$">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">FrontRightAsDcMotor</field>
+<field name="IDENTIFIER2">BackRightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front Right","IDENTIFIER2":"Back Right"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id="iZ{DOk6-/EyohhaJk8q{">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="T|:k*3=COxCYS!3Q_XRJ">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_RunMode" id="fUv;gavnJ5F]nMnh-~tR">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">FrontLeftAsDcMotor</field>
+<field name="IDENTIFIER2">BackLeftAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front Left","IDENTIFIER2":"Back Left"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id="^!y%B$nLr8.e[]?GdhDD">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="zB~6*gzmI5oX{]ulxcnV">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_RunMode" id="koWQC}s,br!%ISd/-q#M">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">FrontRightAsDcMotor</field>
+<field name="IDENTIFIER2">BackRightAsDcMotor</field>
+<data>{"IDENTIFIER1":"Front Right","IDENTIFIER2":"Back Right"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id="CI(Y`Q/LgcSqr!ku%=GE">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="[Dk}A,F$QdlEDQ^4(QKh">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="variables_set" id="2:DA4IdPeqJu2m#Now!K">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+<value name="VALUE">
+<block type="math_number" id="LV`c4`yxzGw*L*S!G{eU">
+<field name="NUM">0.1</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="bXZ_:!mvQT-o^[)KtpZ8">
+<field name="VAR" id="6{=6A,oh,X-Rxh@LY!{w">Dpaduplast</field>
+<value name="VALUE">
+<block type="math_number" id="[x}_Q]YIXa$GyZUW}bD6">
+<field name="NUM">0</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="OrY9oefH!YBqrcN8.`W(">
+<field name="VAR" id=".Q5e`Ixs!QuWsU3~C%F:">Dpaddownlast</field>
+<value name="VALUE">
+<block type="math_number" id="8|~}t2{~_%_k`fXX}!i%">
+<field name="NUM">0</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="comment" id="Jh/;L$n@JuX8AQJDFCul">
+<field name="COMMENT">Put loop blocks here.</field>
+<next>
+<block type="comment" id="IubyKeze|28#r9XA0O@%">
+<field name="COMMENT">Arcade style meccanum drive</field>
+<next>
+<block type="controls_if" id="239_t`syZQ(6*4Jr8Su3">
+<mutation elseif="1"/>
+<value name="IF0">
+<block type="logic_compare" id="Pk6jbxnDUS=G);hSE8,;">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="*T:~Qy1hTG8)#u4O{oj@">
+<field name="VAR" id="6{=6A,oh,X-Rxh@LY!{w">Dpaduplast</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="l{hRY`jKe=4aTNkTn1_?">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="O*@F}]|pT%8Si[`R0Xw}">
+<value name="IF0">
+<block type="logic_compare" id="D,UPl~H8bcDOvp~ikk2H">
+<field name="OP">LT</field>
+<value name="A">
+<block type="variables_get" id="jz$S7~$m*(ki0Ki5[%}P">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="f1.xU[XZD.gZN+%lgBoX">
+<field name="NUM">0.5</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="!v:a$f;dO9Rh.gQ*Pbwr">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="D4S2]_@]:).=Imdul+~V">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadUp</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="Ipq?f!3O|eWP1?hy10U-">
+<field name="VAR" id="6{=6A,oh,X-Rxh@LY!{w">Dpaduplast</field>
+<value name="VALUE">
+<block type="math_number" id="Dsc6O~9yJ9(r3/BtiR:E">
+<field name="NUM">1</field>
+</block>
+</value>
+<next>
+<block type="math_change" id="t_c+oeO|85_[I-8i[6jQ">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+<value name="DELTA">
+<shadow type="math_number" id="RN^(Hb1i3n6I0nkJap+I">
+<field name="NUM">0.1</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_negate" id=":F$iW#Yw4ZY-8*9*O+hL">
+<value name="BOOL">
+<block type="gamepad_getProperty_Boolean" id=".}(4^u:ATVG5d5f@%Yf!">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadUp</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="variables_set" id="h8_RZ1s[Z::6^Q#WAz3?">
+<field name="VAR" id="6{=6A,oh,X-Rxh@LY!{w">Dpaduplast</field>
+<value name="VALUE">
+<block type="math_number" id="2LI{Q$emKyhyRu|Rtck:">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="#0{YgeiWB`i_VV{!Xs`Q">
+<mutation elseif="1"/>
+<value name="IF0">
+<block type="logic_compare" id="{Bu?wBSi?.a($F4YD_Hg">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="y`=QDsM[f#.knJKKUkC|">
+<field name="VAR" id=".Q5e`Ixs!QuWsU3~C%F:">Dpaddownlast</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="E=~?M7~Y#%Rw?8KB%v?/">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="9B6WN(7VtGl|1!E?SLB1">
+<value name="IF0">
+<block type="logic_compare" id="46eC`c]y1L#=?uJ*|yRy">
+<field name="OP">GT</field>
+<value name="A">
+<block type="variables_get" id="YO`XAz!DEdb3~AT]@0xn">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="KG^.b#;QKl/N$Z/TXJfY">
+<field name="NUM">0.11</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="rE[r[f-Y_;GFdT|lzisv">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="qmR=U`g-2XxU5G~b=rTJ">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadDown</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="math_change" id="e1TpIiC(58hR`?mTtLhn">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+<value name="DELTA">
+<shadow type="math_number" id="c^Y`y}Js_=PRW,tpN#O;">
+<field name="NUM">0.1</field>
+</shadow>
+<block type="math_single" id="m?hW,#*Te|ryg/]c93Nq">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="#PKgNEIP@Wsoj,eTGLJG">
+<field name="NUM">0.1</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="variables_set" id="9?I0Fo%szZt$mX+83pqQ">
+<field name="VAR" id=".Q5e`Ixs!QuWsU3~C%F:">Dpaddownlast</field>
+<value name="VALUE">
+<block type="math_number" id="225.V[o?(B+.L1D;/*#/">
+<field name="NUM">1</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_negate" id="vwzYjw$c6m]M)j~cO$gb">
+<value name="BOOL">
+<block type="gamepad_getProperty_Boolean" id="Qkp~;=gv=%M1gQVlO^T:">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadDown</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="variables_set" id="HFhHoKRNf0yitx0@;s4F">
+<field name="VAR" id=".Q5e`Ixs!QuWsU3~C%F:">Dpaddownlast</field>
+<value name="VALUE">
+<block type="math_number" id="nQk([Rk)xy6=vk+O#f*N">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="telemetry_addNumericData_Number" id="_#kcV*~U#o/)oW:osz^d">
+<value name="KEY">
+<shadow type="text" id="@JZ8$m3xmJ4r2#0=Gp*}">
+<field name="TEXT">Time Passed</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="3-:Mzm}C!R;9!N,{L$(.">
+<field name="NUM">123</field>
+</shadow>
+<block type="linearOpMode_getRuntime_Number" id="lZG%T-?65$GrM7^|uZof"/>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="-c@tgvQ]]m+f]VNFi/)D">
+<field name="IDENTIFIER">FrontRightAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"Front Right"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="g+U{#]IrLr9v@(^e[LXY">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="BBB4EIdcmC[0;%rU!^pU">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number" id="(:-[nOAH*wgl5aC)nx;~">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="z|1MFFu6y60$R+!q4)T{">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number" id="Z#V@s{jA~~/_M^}Wg*io">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="d,q6z5{lB(V8.}z2H}Ai">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number" id="pQD)jZA|4E})yLvP:eV@">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="wQIdnzKY9pau$~oK2)UT">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="aROLxv-7$_Yz[Gn_|uu^">
+<field name="NUM">9</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="Q#f:~#L?601^shoL*=V;">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickY</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="r=%`zBn*M6laypQ-y_}#">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="I5/VoI-20#{cc4f/=}DO">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="_N`YJVo0~Z!iPv?;lw+h">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="k$/;/M+@zT?*KoTz)9:^">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number" id="X|v?oE84p21ru8C/94D7">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="3lv/%IsM${vc-._t/AQ9">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="[WKj`es=Rsnx*bw0#S/_">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="_zr`BS]-}SGVrX3#l5h[">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="8e8g1iL+-u83qsO?i$rh">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="5N:234{qWc7jSleZoZS;">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number" id="RZ~=H=zw!t=58H+qiZ-)">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="K#gl~-O%q`j[G])m2{UB">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="p!i_]sMf@ETqHK|XyNZ{">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="]EPFCYuWpEli/AYf{;6*">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="h8x!*}bwq*(PE$6Bj29!">
+<field name="IDENTIFIER">BackRightAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"Back Right"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="RsIQC)%%j6A=04y.rJNp">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="|vaF8bd#W6-|[t+XPRs^">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="nqmm:O]NdLhJt@$SqJ),">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="w+JC%GOGOtT^ZY9S]MG4">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="EPdXq`@1Ng2%MSaeS1Mk">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id=",T?,u|^7]A`uYRcC^d_^">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickY</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="4;Jz}-)*#RV!d?CjvseC">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="/lh}S+V^i;rBRC)UMJbc">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="R$X!gA1!z]dm;naC]^Vq">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="~1D=]mw|+PrtW-bMS7*B">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="Up~i|1#DoYd%w`|ey5Dv">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="zcCv%03PcDYesTT5ty8.">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="IZZ[E.T1ZX=1Eexinn3G">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="#=P-UlssjqBx9znJb8mD">
+<field name="IDENTIFIER">FrontLeftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"Front Left"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="d)LgMJL=11._LiY{%XY_">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="bpis7m?W*y7d*{+3g+PT">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number" id="3{:ug_FnO@`l~Ea_EK-C">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="nUEARZO9e3J!]p=nPrH`">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="FR-MSN}sl]Cv_r#!-Dsa">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="xv9X1j{#5?%~i=wYdjPP">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="@Me/V3I)JA$t?=GZ@BR.">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickY</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="R1jj.F|HPxE82-9d,0Ec">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="JO[f4+n]9)9_mzsB/t3a">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="/-VBG(p6G$a_v2I:AH/p">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="^m%-])n^H@JLb|93x_nw">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="rlgDHdWVb6X}8cwrr6,8">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="74*/y~uuA6/WTz6yfTee">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="kbaA.DChXp#!:rb41XqK">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="AozXoHBElMvhWb1v8YvZ">
+<field name="IDENTIFIER">BackLeftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"Back Left"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="(u@+e%bbZBdl;SY;!@#v">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="OrgL_l7Fi7i|x|.b]ZP*">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="=y1o|w]*THu:rZ{c`w+;">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="Z|q`@j,s[qaI0ReV4WBw">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_single" id="lH%^N4{3koYPww[vjj`6">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="R6z7pNi+hR=y~qIX4#sW">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickY</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="~jCzJh]q^?F-8fEabeUF">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="*UtfZ1SOT;DO}*z_U*7V">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="Qeqx`c}^AZdEK#uH5O@K">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="/wv-$[*QV*n%cb?v*=6l">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="iV4W?W)PA~;bB?+nvhu(">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="]otV0Ry*1rS}+U@2fjyt">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="VL2TfV=m1ld2wUNkbx4e">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="voet=JtQ/g9fk,jEzj6G">
+<value name="KEY">
+<shadow type="text" id="c*)h^B?P%jW!}Q8y5(l{">
+<field name="TEXT">Gear</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="O^lXs|J?(qJ$yQg}1;]|">
+<field name="NUM">123</field>
+</shadow>
+<block type="variables_get" id="OOt,HgKdrt;58:.)/Nb2">
+<field name="VAR" id="|eYHX!e]||6Wf.N4c4Ba">Gear</field>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="Q|AstyHr[8AWOCWM!OiV">
+<value name="KEY">
+<shadow type="text" id="C9~oXWNS-zx`Cj{hDawQ">
+<field name="TEXT">Front Left Encoder</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="=B{^W.i`+8Hoyo[sTC|.">
+<field name="IDENTIFIER">FrontLeftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"Front Left"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="gk,yiq:!7B.%4=k:}|@S">
+<value name="KEY">
+<shadow type="text" id="NlWZSpYM!pDY7Rg[V@Y}">
+<field name="TEXT">Front Right Encoder</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="DT|ebz~6M+3q88{lBs*9">
+<field name="IDENTIFIER">FrontRightAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"Front Right"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="7Y!}?3h;7-80Rv!a85N4">
+<value name="KEY">
+<shadow type="text" id="CvqyJojMsno0_#_X8bYt">
+<field name="TEXT">Back Left Encoder</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="3[cy0-RL[5-gv}*R%}QX">
+<field name="IDENTIFIER">BackLeftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"Back Left"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="c9|$fm_[i$vCNA!F}`Ho">
+<value name="KEY">
+<shadow type="text" id="_Ttk55m-]2wK5|M($iXO">
+<field name="TEXT">Back Right Encoder</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="x%fI6BG]2p=y)LC3X71-">
+<field name="IDENTIFIER">BackRightAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"Back Right"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="Qo?[hWEWgtYHfp8~T)k/">
+<value name="KEY">
+<shadow type="text" id="?C6uP8Flka65?%OUai6H">
+<field name="TEXT">Front Left RPM</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="ksdNl7uRronO9)2i)T8!">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="m(t|rZBV}v|8H9*vY{ov">
+<field name="IDENTIFIER">FrontLeftAsDcMotor</field>
+<field name="PROP">Velocity</field>
+<data>{"IDENTIFIER":"Front Left"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="c?^JK+`0od[m0iz0W5Q#">
+<value name="KEY">
+<shadow type="text" id="N8ARYtUQ4P1Ye3P,$g,0">
+<field name="TEXT">Back Left RPM</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="m65:sY]R)%mM2hH7@cn#">
+<field name="IDENTIFIER">BackLeftAsDcMotor</field>
+<field name="PROP">Velocity</field>
+<data>{"IDENTIFIER":"Back Left"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="JZzdh50XDp05:HK4Oo*}">
+<value name="KEY">
+<shadow type="text" id="_;mcO^R;;J}{:zIl4Q[9">
+<field name="TEXT">Front Right RPM</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id=":f6D1[A%?_i~fXPehbm]">
+<field name="IDENTIFIER">FrontRightAsDcMotor</field>
+<field name="PROP">Velocity</field>
+<data>{"IDENTIFIER":"Front Right"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="Y#{EC}FI@%;MKZ4fSHCG">
+<value name="KEY">
+<shadow type="text" id="u5umQ;pJ}$1+O,(su7(0">
+<field name="TEXT">Back Right RPM</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="#Tz=[jT[3t.Z9`T97`:!">
+<field name="IDENTIFIER">BackRightAsDcMotor</field>
+<field name="PROP">Velocity</field>
+<data>{"IDENTIFIER":"Back Right"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="exvivmft-pX$n!1,8Ea$"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="TELEOP" group="" />
+<Enabled value="true" />
+</Extra>

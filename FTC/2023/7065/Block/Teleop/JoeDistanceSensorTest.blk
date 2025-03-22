@@ -1,0 +1,206 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="8v(7k2Pf4PI/cRZ/v^e5">distance</variable>
+<variable id="(zG,mIRwA!3-z4iP2)pW">lightDetected</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="67" y="100">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="45" w="532">This function is executed when this OpMode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="variables_set" id="YQ6TZ3j`{]kLtO?.zm4/">
+<field name="VAR" id="8v(7k2Pf4PI/cRZ/v^e5">distance</field>
+<value name="VALUE">
+<block type="distanceSensor_getDistance" id="IYCXCy8k}NvyO*X1P,:s">
+<field name="IDENTIFIER">dsClawAsDistanceSensor</field>
+<data>{"IDENTIFIER":"dsClaw"}</data>
+<value name="DISTANCE_UNIT">
+<shadow type="navigation_typedEnum_distanceUnit" id="Y;;t;F1Q!AO_rFSJftQn">
+<field name="DISTANCE_UNIT">CM</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="variables_set" id="yO:WQc3VIkia{z(jQ8:p">
+<field name="VAR" id="(zG,mIRwA!3-z4iP2)pW">lightDetected</field>
+<value name="VALUE">
+<block type="opticalDistanceSensor_getProperty_Number" id="kYs-4$%@/R*quJ@F}],d">
+<field name="IDENTIFIER">dsClawAsOpticalDistanceSensor</field>
+<field name="PROP">LightDetected</field>
+<data>{"IDENTIFIER":"dsClaw"}</data>
+</block>
+</value>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="comment" id="Jh/;L$n@JuX8AQJDFCul">
+<field name="COMMENT">Put loop blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="NK;:SrsI.tcJPWzORxMG">
+<field name="MODE">UNTIL</field>
+<value name="BOOL">
+<block type="logic_operation" id="dx~Tz7g5`v^wLQ}U:^c7">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="_ugZA:r%VWMupTCqgFd^">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="variables_get" id="r?Sj+dt5?YLk;Y{owSW[">
+<field name="VAR" id="8v(7k2Pf4PI/cRZ/v^e5">distance</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="yqSo%mCl8Vf7h0TK[x8C">
+<field name="NUM">2</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="linearOpMode_isStopRequested" id="=}[ptkvw#Vq:bdra!VP9"/>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="crServo_setProperty_Number" id="7Upm/{m5P+B=!LK%QU%A">
+<field name="IDENTIFIER">crsClawAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"crsClaw"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="1{JSJ^C9]^%[$e+o|a]r">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<next>
+<block type="telemetry_update" id="exvivmft-pX$n!1,8Ea$">
+<next>
+<block type="controls_flow_statements" id="p,nDz!S|GnO02|;]S,~m">
+<field name="FLOW">BREAK</field>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_whileUntil" id="QF7=$fH!Q@LP/YzmhuJ1">
+<field name="MODE">UNTIL</field>
+<value name="BOOL">
+<block type="linearOpMode_isStopRequested" id="0#Loy:FtVcV6]}_0HWqU"/>
+</value>
+<statement name="DO">
+<block type="telemetry_addNumericData_Number" id="ObRYCo#90g2u#OfkIVtG">
+<value name="KEY">
+<shadow type="text" id="8M!*Uq*xvbM`UzL;~/.5">
+<field name="TEXT">distance</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="ho=pA8#+]~*KlDsX8Nc}">
+<field name="NUM">123</field>
+</shadow>
+<block type="variables_get" id="5{i9Nv}`;D/w#0H,%58Z">
+<field name="VAR" id="8v(7k2Pf4PI/cRZ/v^e5">distance</field>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="53FIQJ?p}s*.NEsYvn$d">
+<value name="KEY">
+<shadow type="text" id="LYo6)MH362u1kn|^BX+:">
+<field name="TEXT">lightDetected</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="variables_get" id="HYEVG]$Eo[~:;l^S{[3s">
+<field name="VAR" id="(zG,mIRwA!3-z4iP2)pW">lightDetected</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="jq9ej,Bd,Q9dy;ZILH/~"/>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="logic_operation" id="`y:GH:Q[aHu:0_`Ga1+`" x="565" y="436">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="]DHQH*?A_.:.Wo)5^uIl">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="variables_get" id="u9!f3aR!88x)6O*mjzvV">
+<field name="VAR" id="(zG,mIRwA!3-z4iP2)pW">lightDetected</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="jFacz]-#r_yQ;v`l6jr?">
+<field name="NUM">0.7</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="linearOpMode_isStopRequested" id="@|Zzoiq8=XzcKQoKO9f4"/>
+</value>
+</block>
+<block type="linearOpMode_sleep_Number" id="[o)TS*n}Px1`Wh76Fnl(" x="538" y="551">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="PcOMx6f=4p{T{LbLxI(v">
+<field name="NUM">5</field>
+</shadow>
+</value>
+<next>
+<block type="crServo_setProperty_Number" id="An+?BrdcBzG(U9|8szZ!">
+<field name="IDENTIFIER">crsClawAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"crsClaw"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="?HLKQ[33z!Vf;DsGSRYd">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</xml><?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Extra><OpModeMeta flavor="TELEOP" group="" /><Enabled value="false" /></Extra>

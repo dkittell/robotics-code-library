@@ -1,0 +1,66 @@
+Hostname:		roboRIO-8767-FRC
+OS:			NI Linux Real-Time - Academic 8.15
+CPU:			2
+Architecture:		32-Bit (armv7l)
+Memory:			244.289 MB
+IP - Radio:		10.87.67.2
+
+Network Information
+	Network Adapter:	eth0
+	Network IP:		10.87.67.2
+	Network Mask:		255.255.255.0
+
+
+Connected Devices
+10.87.67.165|eth0|ac:86:74:39:74:60|STALE
+10.87.67.1|eth0|ac:86:74:39:74:60|STALE
+10.87.67.190|eth0|ac:86:74:39:74:60|REACHABLE
+
+
+Network Details
+eth0      Link encap:Ethernet  HWaddr 00:80:2F:25:B1:C1  
+          inet addr:10.87.67.2  Bcast:10.87.67.255  Mask:255.255.255.0
+          inet6 addr: fe80::280:2fff:fe25:b1c1/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:97849 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:87622 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:27428435 (26.1 MiB)  TX bytes:9005641 (8.5 MiB)
+          Interrupt:54 Base address:0xb000 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:282 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:282 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:21641 (21.1 KiB)  TX bytes:21641 (21.1 KiB)
+
+usb0      Link encap:Ethernet  HWaddr 00:80:2F:25:B1:C1  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+
+
+Partition Details
+NAME      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+mtdblock0  31:0    0   128K  1 disk 
+mtdblock1  31:1    0    11M  1 disk 
+mtdblock2  31:2    0    70M  0 disk 
+mtdblock3  31:3    0 430.4M  0 disk 
+mtdblock4  31:4    0   252K  0 disk 
+mtdblock5  31:5    0   252K  0 disk 
+mtdblock6  31:6    0    54M  0 disk 
+mtdblock7  31:7    0   4.1M  0 disk 
+mtdblock8  31:8    0 413.3M  0 disk 
+
+
+User List
+admin
+lvuser
+openvpn
+webserv

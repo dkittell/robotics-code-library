@@ -1,0 +1,504 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="?%-}b8^K#*dk.jPmOYT%">StartTime</variable>
+</variables>
+<block type="procedures_defnoreturn" id="|N!(gODny~~PiZyGYQUh" deletable="false" editable="false" x="-598" y="-314">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="80" w="160">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="tL}+Vm=n`f)J5QrTOIj2">
+<field name="COMMENT">This op mode uses motor encoders to drive</field>
+<next>
+<block type="comment" id="V^}w*Ev@3[FGG?S/APG]">
+<field name="COMMENT">a robot forward two revolutions of the robot's</field>
+<next>
+<block type="comment" id="SL#yL+U6HK5_$R:3J$jn">
+<field name="COMMENT">motors and then spins in place.</field>
+<next>
+<block type="comment" id="iyt4p-O*n`X;r0:9Euli">
+<field name="COMMENT">The op mode assumes that you have </field>
+<next>
+<block type="comment" id="[OCEVsGU.dnJKP7H_J3+">
+<field name="COMMENT">(1) Built a robot that has two motors.</field>
+<next>
+<block type="comment" id="ROa`*hFqP.eNlcGogy,-">
+<field name="COMMENT">(2) Each motor has a built-in encoder or you have</field>
+<next>
+<block type="comment" id=";7du}g_b:}mI6l$GNd.C">
+<field name="COMMENT">       mounted external encoders on them.</field>
+<next>
+<block type="comment" id="sw]Bs=)zT:maPs[2?2oE">
+<field name="COMMENT">(3) You have cabled the encoders to a motor</field>
+<next>
+<block type="comment" id="iu(SU?U6XDhR?ltiy*{/">
+<field name="COMMENT">      controller or the REV Expansion hub.</field>
+<next>
+<block type="comment" id="^9RGyN9OI#2WTBrtI3;Y">
+<field name="COMMENT">(4) Created and activated a Config file that sets</field>
+<next>
+<block type="comment" id="B`g~JYE7d#d^Fsd^SVzA">
+<field name="COMMENT">       up two motors named motor1 and motor2.</field>
+<next>
+<block type="comment" id="v!2OZ{XiSPM-yGWXk31T">
+<field name="COMMENT">Reverse the direction of motor1 so the robot</field>
+<next>
+<block type="comment" id="KSOO:t;hU+.3dh2|4g{1">
+<field name="COMMENT">will move forward rather than spin in place.</field>
+<next>
+<block type="dcMotor_setProperty_Direction" id="AS:Ph)woE+]xyA3s[=nS">
+<field name="IDENTIFIER">motor1</field>
+<field name="PROP">Direction</field>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="|Qpwg(t1{u)jC:*fe/}-">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="comment" id="eS24h%jC]S9J}[wD;!M4">
+<field name="COMMENT">Make sure the encoder tick counts are zero.</field>
+<next>
+<block type="dcMotor_setDualProperty_RunMode" id="pjfLNp7V{JF+V]vgqr{f">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">motor1</field>
+<field name="IDENTIFIER2">motor2</field>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id="]NO}lVA#$Gv3Z;5|!o*z">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="O-u4aG#?[x,UIHj1t}^e">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="comment" id="@(8+x0L{BDxV7#Vwv*Vt">
+<field name="COMMENT">We'll use the motor controller mode that allows</field>
+<next>
+<block type="comment" id="tpcuc?^Q39Bbn@3qL/?}">
+<field name="COMMENT">us to run the motors until a specific number of </field>
+<next>
+<block type="comment" id="1E:#_Z`{Svf1GI)2wg{i">
+<field name="COMMENT">encoder ticks has been reached.</field>
+<next>
+<block type="dcMotor_setDualProperty_RunMode" id="iH7s7Fw9AViY!H`n:;9V">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">motor1</field>
+<field name="IDENTIFIER2">motor2</field>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id="2Wz|z*tam+idi+1MbfT^">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="G`7x~90=QYDL.cLp3*9@">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="comment" id="I,~B4p)k|9.%1ZVsDRl#">
+<field name="COMMENT">The following "set TargetPosition" block uses</field>
+<next>
+<block type="comment" id="|ii{IfmRtu9.+rjgpumR">
+<field name="COMMENT">the number of encoder ticks per revolution</field>
+<next>
+<block type="comment" id="0KHX$yQ#FS6K4WVTuv~D">
+<field name="COMMENT">for Modern Robotics motor encoders times 2. </field>
+<next>
+<block type="comment" id="6qotwg_yyvs]E3afEDUy">
+<field name="COMMENT"> If you are using AndyMark or REV motors, replace</field>
+<next>
+<block type="comment" id="BqSY{BF:pXw3i3f/r(4:">
+<field name="COMMENT">1440 with</field>
+<next>
+<block type="comment" id="H=y)ks!Ud}Bd%XpO3[^L">
+<field name="COMMENT">    AndyMark NeveRest 40: 1120</field>
+<next>
+<block type="comment" id="t~GwVEh;@@G?:kksU@=n">
+<field name="COMMENT">    REV Hex Motor: 2240</field>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="YnIW@Dn6fdv5)NXA_6#2">
+<field name="PROP">TargetPosition</field>
+<field name="IDENTIFIER1">motor1</field>
+<field name="IDENTIFIER2">motor2</field>
+<value name="VALUE1">
+<shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="CaO%%hQxD2CCT%?P:7rH">
+<field name="NUM">2880</field>
+</shadow>
+<block type="math_arithmetic" id="zwIxhn2wgq1V5]Jg7Hyr">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number" id="*,UZXj7B?+TKVys65c]T">
+<field name="NUM">1440</field>
+</shadow>
+</value>
+<value name="B">
+<shadow type="math_number" id="}$__2v[axT~IN7-5J6V`">
+<field name="NUM">2</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="KV?Ht{n]Cr!upG`Mkq+@">
+<field name="NUM">2880</field>
+</shadow>
+<block type="math_arithmetic" id="em]^K0I,oy=2}TZc(%A6">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number" id="[HmNCb@Z0H|FXt2Zf;2z">
+<field name="NUM">1440</field>
+</shadow>
+</value>
+<value name="B">
+<shadow type="math_number" id="(,$#Vw!IU6266K@wjfQ!">
+<field name="NUM">2</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="comment" id="FM:k:hw5txM9bMwJNq?~">
+<field name="COMMENT">Wait for Start to be pressed on the Driver Station</field>
+<next>
+<block type="linearOpMode_waitForStart" id="Fu=[kqALs7`7fc^kj[Lm">
+<next>
+<block type="comment" id="uuKI,fBKfc=[k7j#Z#j%">
+<field name="COMMENT">In this mode the power values are actually</field>
+<next>
+<block type="comment" id="DHuU_mafp3+;XmPe9mf7">
+<field name="COMMENT">target speeds expressed as percentages of</field>
+<next>
+<block type="comment" id="=QTo{BAq0k9jBAGO~lOz">
+<field name="COMMENT">the maximum speed of the motors.</field>
+<next>
+<block type="comment" id="SN3MYceJT=(p[~$iF?n+">
+<field name="COMMENT">We'll use 80% for both motors.</field>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="99VY]^lfqG=[tG*jfqTW">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">motor1</field>
+<field name="IDENTIFIER2">motor2</field>
+<value name="VALUE1">
+<shadow type="math_number" id="?UKNGW[O{0Xuk`/%6N_^">
+<field name="NUM">0.8</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="d:hSvxzTNnR?$SgTy2O4">
+<field name="NUM">0.8</field>
+</shadow>
+</value>
+<next>
+<block type="variables_set" id="dD~*{l^N7T:GSDEWEgAi">
+<field name="VAR" id="?%-}b8^K#*dk.jPmOYT%">StartTime</field>
+<value name="VALUE">
+<block type="linearOpMode_getRuntime_Number" id="]h$fs!l?a=OTtqW).$s4"/>
+</value>
+<next>
+<block type="comment" id="2d!-VKl]jm~@vg^@Q7fW">
+<field name="COMMENT">Loop until both motors are no longer busy.</field>
+<next>
+<block type="controls_whileUntil" id="dMANvE*[vyC#7]U~HL~H">
+<field name="MODE">UNTIL</field>
+<value name="BOOL">
+<block type="logic_operation" id=":|HVSzq*/NPXqV8%,Z|z">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_negate" id="RS=8{a$E7)rMf4k}KkQX">
+<value name="BOOL">
+<block type="dcMotor_isBusy" id="28./0npMF=|PMko+}RZy">
+<field name="IDENTIFIER">motor1</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_negate" id="vj3hV4zi?Cl,XsE?}iP1">
+<value name="BOOL">
+<block type="dcMotor_isBusy" id="O!u*zam!eB%4FYf^XG2]">
+<field name="IDENTIFIER">motor2</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="comment" id="n7pGu.IP4RiDe1G+`:_$">
+<field name="COMMENT">We don't need to do anything while looping</field>
+<next>
+<block type="comment" id="rvrSi,eFSyw~2F3+Css`">
+<field name="COMMENT">because the motor controller will keep the</field>
+<next>
+<block type="comment" id="ji./73)KeY6b-6Q-mE0d">
+<field name="COMMENT">motors running until the target counts are</field>
+<next>
+<block type="comment" id="z7jMNhQP/GC)|*xOc:_!">
+<field name="COMMENT">reached. When that happens the motors</field>
+<next>
+<block type="comment" id="~;(_[i(){?(L2`~C{hCZ">
+<field name="COMMENT">will no longer be busy.</field>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="comment" id="sK8F5#MhR5Vl|(9{.x6y">
+<field name="COMMENT">Change the direction of motor1 back to forward so</field>
+<next>
+<block type="comment" id="B]|^HNIV#X=+N+pN=Otz">
+<field name="COMMENT">the robot will spin in place.</field>
+<next>
+<block type="dcMotor_setProperty_Direction" id=")tW;S^b~5YHZw-hTLQIm">
+<field name="IDENTIFIER">motor1</field>
+<field name="PROP">Direction</field>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="DkI`A-]/oix/|J_LKfKs">
+<field name="DIRECTION">FORWARD</field>
+</shadow>
+</value>
+<next>
+<block type="comment" id="1lklcQ5$-ov=*o8|;RPj">
+<field name="COMMENT">Change the target counts so motor1 counts down 1 </field>
+<next>
+<block type="comment" id="|h}50pFE1^B)sPk*Y(MG">
+<field name="COMMENT">revolution from 2 to 1 and motor2 counts up 1</field>
+<next>
+<block type="comment" id="t)6(s/2e{+9w,X`e1BF!">
+<field name="COMMENT">revolution from 2 to 3.</field>
+<next>
+<block type="comment" id="ZYIIXv,tdnQb%4lYaBzC">
+<field name="COMMENT">Change 1440 appropriately if you are not using </field>
+<next>
+<block type="comment" id="BkrF)w}c=Nf]3#MzyjVW">
+<field name="COMMENT">Modern Robotics encoders.</field>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="ublLBO%lk)wNl+dz;%As">
+<field name="PROP">TargetPosition</field>
+<field name="IDENTIFIER1">motor1</field>
+<field name="IDENTIFIER2">motor2</field>
+<value name="VALUE1">
+<shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="3]v6(4r:2%FA_@O4*f*z">
+<field name="NUM">1440</field>
+</shadow>
+<block type="math_arithmetic" id="aAS$IWXI-(p.u$+=vD[|">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number" id="ZM|((V/kw]|Aa!/q{Lg~">
+<field name="NUM">1440</field>
+</shadow>
+</value>
+<value name="B">
+<shadow type="math_number" id="L:!nd9+(.LJ[uGb-ge/6">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="4+c8M7mz83ChS^9I6hc9">
+<field name="NUM">4320</field>
+</shadow>
+<block type="math_arithmetic" id="49-aAfLD-m3}IaH+mk?#">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number" id="qw+)Xc(nb)(hAmE9w57F">
+<field name="NUM">1440</field>
+</shadow>
+</value>
+<value name="B">
+<shadow type="math_number" id="rLv=2Qm4%xMYr3WHWfQU">
+<field name="NUM">3</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="comment" id="s+wrRVPj`-GegSG)P}b]">
+<field name="COMMENT">Loop until both motors are no longer busy.</field>
+<next>
+<block type="controls_whileUntil" id="uV.JWB;soYv+zC@j#r$o">
+<field name="MODE">UNTIL</field>
+<value name="BOOL">
+<block type="logic_operation" id="5Hsnl:L{/|k9lcPxkJ(a">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_negate" id="jQ2gaIo!FU#t3D3Qtgjp">
+<value name="BOOL">
+<block type="dcMotor_isBusy" id="rErVXpp9KuqS-*]#|_1z">
+<field name="IDENTIFIER">motor1</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_negate" id="t3y%/di~Ud@yk}pZ/:q!">
+<value name="BOOL">
+<block type="dcMotor_isBusy" id="(m^R/lyUq]))!PzQmV{+">
+<field name="IDENTIFIER">motor2</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="comment" id="2KsCU@#_]|JaU}ZGzh6h">
+<field name="COMMENT">We don't need to do anything while looping</field>
+<next>
+<block type="comment" id="p^rUE*ptxjyN/aqmDYDG">
+<field name="COMMENT">because the motor controller will keep the</field>
+<next>
+<block type="comment" id="QRd*wFE$Jn6I!tnZ9B+b">
+<field name="COMMENT">motors running until the target counts are</field>
+<next>
+<block type="comment" id="XuzYllTMFx0wI7J@;;C_">
+<field name="COMMENT">reached. When that happens the motors</field>
+<next>
+<block type="comment" id="zUcK|;rM1YKs-l$`(u6k">
+<field name="COMMENT">will no longer be busy.</field>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="comment" id="{eRz*Zsx,$Lf]I!Cmcb|">
+<field name="COMMENT">We're done so we turn off the motors.</field>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="TJqTZi7e=Q(1ux]o1JvV">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">motor1</field>
+<field name="IDENTIFIER2">motor2</field>
+<value name="VALUE1">
+<shadow type="math_number" id="~xlMqz21VN^Y;,[RSnMM">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="MzeE]}.q14^sTtxaBLuc">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="comment" id="8f$x7,p!T#mGZPOkrnw9" x="1263" y="148">
+<field name="COMMENT">AndyMark NeveRest: 1120</field>
+</block>
+<block type="comment" id="f;GDYQF]Y9Xm2L.K-fh$" x="1294" y="202">
+<field name="COMMENT">Change 1440 appropriately if you are not using Modern Robotics encoders.</field>
+</block>
+</xml><?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Extra><OpModeMeta flavor="AUTONOMOUS" group="" /><Enabled value="false" /></Extra>

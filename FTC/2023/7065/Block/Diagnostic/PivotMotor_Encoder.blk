@@ -1,0 +1,256 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="*FORPvYK1D6gVzkl#r:V">ecLowPivot</variable>
+<variable id="l.hZ.GRrk6QdO,4KEo-v">ecHighPivot</variable>
+<variable id="keH_d{Nm=BKV6n~ZP+jm">ecTurnR</variable>
+<variable id="QH?Ci5q{kYkevTkmIS7u">ecHomePivot</variable>
+<variable id="V2,^@t}xc-eKBp`vzg(Q">mP</variable>
+<variable id="$vYF{FwtY;0uRATmyi6X">ecBackward1</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="190" y="64">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="45" w="532">This function is executed when this OpMode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="dcMotor_setProperty_Direction" id="(R8AY(QrtqaNu+j.-rEa">
+<field name="IDENTIFIER">mPivotAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"mPivot"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="If[C~U@ks$S5^%@pb?Yy">
+<field name="DIRECTION">FORWARD</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="m`tG_fC[2=9U-3EpSMtU">
+<field name="IDENTIFIER">mPivotAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"mPivot"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="(E0u_EZ1l9?{q=?[~F5d">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="variables_set" id="2pLOg54#s@7:A[@}Jc_I">
+<field name="VAR" id="*FORPvYK1D6gVzkl#r:V">ecLowPivot</field>
+<value name="VALUE">
+<block type="math_number" id="_/0yU#Nxs@nf$aBy7=^Y">
+<field name="NUM">1120</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id=",(KLDoQx}gs]g^au_s^i">
+<field name="VAR" id="l.hZ.GRrk6QdO,4KEo-v">ecHighPivot</field>
+<value name="VALUE">
+<block type="math_number" id="m[Kj1b[zKxvaeZs^_YJu">
+<field name="NUM">4000</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="1Ede|KinRodIg9o$;;4J">
+<field name="VAR" id="keH_d{Nm=BKV6n~ZP+jm">ecTurnR</field>
+<value name="VALUE">
+<block type="math_number" id="JyA:rhk1k8y^5Qkp*WPf">
+<field name="NUM">1980</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="K*1x;d6iIOpc,/z|;kYY">
+<field name="VAR" id="QH?Ci5q{kYkevTkmIS7u">ecHomePivot</field>
+<value name="VALUE">
+<block type="math_number" id="b2iZ:KuPZJ0=ZWqvRUsi">
+<field name="NUM">25</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="+6_ZUhb]lmKtKPfjQ|-j">
+<field name="VAR" id="V2,^@t}xc-eKBp`vzg(Q">mP</field>
+<value name="VALUE">
+<block type="math_number" id="K^cfHb?53eIN4pBZIeA6">
+<field name="NUM">0.2</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="JE-*5B-HNUM_?myW#8CT">
+<field name="VAR" id="$vYF{FwtY;0uRATmyi6X">ecBackward1</field>
+<value name="VALUE">
+<block type="math_single" id="U]i_O^@GaDJly$)A~.).">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="math_number" id="mCVKp``=u)ke^btY=Fb:">
+<field name="NUM">5120</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="zc:dprv2-kM+x)4Mg3Kn">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id="V{KwoWpSg6EF5vN?SBa3"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="7^FbPmKV!:SAO-BQFS}i">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="telemetry_addTextData_All" id="JfJ89aLA#(@2,3_cfmfG">
+<value name="KEY">
+<shadow type="text" id="Vb~f(N!A;8RNNK?#lsr7">
+<field name="TEXT">encoder</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text">
+<field name="TEXT">text</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="h9lT,tYIfv4-^,lG7)b0">
+<field name="IDENTIFIER">mPivotAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"mPivot"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="#R7[,8sK4qYj7INUt/R[">
+<next>
+<block type="dcMotor_setProperty_Number" id="$s[MT2z)b(9l?i^aBa.p">
+<field name="IDENTIFIER">mPivotAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"mPivot"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="0]+-vwEIi/Cq)c@9j`l5">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="QDq?M?|xrhM9LAT:OmW4">
+<field name="VAR" id="V2,^@t}xc-eKBp`vzg(Q">mP</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="`lpt]F{fIV2+N7%C@HV{">
+<field name="IDENTIFIER">mPivotAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"mPivot"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="FvIf7GjwHq1[qjoH|0.U">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="f._?`ZDV:YgRGJbpqrXE">
+<field name="VAR" id="QH?Ci5q{kYkevTkmIS7u">ecHomePivot</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="t8v|fU|*uo(=9K5YaG-L">
+<field name="IDENTIFIER">mPivotAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"mPivot"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="Xmq,`f(FLIj!J5aPH4*f">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="controls_whileUntil" id="ztZ}Qinh_g%?TKp/f-Lk">
+<field name="MODE">UNTIL</field>
+<value name="BOOL">
+<block type="logic_negate" id=".%I_z[UQ0vC/1pk6$7V,">
+<value name="BOOL">
+<block type="dcMotor_isBusy" id="S-XF#^H7SIEUrr)A]yMK">
+<field name="IDENTIFIER">mPivotAsDcMotor</field>
+<data>{"IDENTIFIER":"mPivot"}</data>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="-6wMU9F!@W69Srj#-J9x">
+<field name="IDENTIFIER">mPivotAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"mPivot"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="xmgbHbFoOsklp7mmT4y{">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="UG?:Vuk_o{+8xj(VkIKj">
+<value name="KEY">
+<shadow type="text" id="cImH,v@WELy)U$it(e5b">
+<field name="TEXT">encoder</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id=":}(MZZjgceo}O*vHZMzb">
+<field name="TEXT">text</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="=y2XIKoiBzRE@Hha!{b6">
+<field name="IDENTIFIER">mPivotAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"mPivot"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="l8G%ng_)s6fql1@ul`n1">
+<next>
+<block type="linearOpMode_sleep_Number" id=";],6Cem695L)v(ao3!KF">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="Y}KD-Y6kJIRCl0bO?!E-">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="AUTONOMOUS" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>

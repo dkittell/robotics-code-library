@@ -1,0 +1,110 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="61" y="78">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="45" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="comment" id="Jh/;L$n@JuX8AQJDFCul">
+<field name="COMMENT">Put loop blocks here.</field>
+<next>
+<block type="controls_if" id="yiP9ej45N-,7o$0V+;%X">
+<mutation elseif="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="2?`RdhBq^HTWbd^0UJuQ">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftBumper</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="revBlinkinLedDriver_setProperty_BlinkinPattern" id="{0Zu9w44F,0t_U0#X}:A">
+<field name="IDENTIFIER">blinkinAsRevBlinkinLedDriver</field>
+<field name="PROP">Pattern</field>
+<data>{"IDENTIFIER":"blinkin"}</data>
+<value name="VALUE">
+<block type="revBlinkinLedDriver_typedEnum_blinkinPatternSolid" id="Rhq6f/x=ld=*~!`(g?yS">
+<field name="BLINKIN_PATTERN">RED</field>
+</block>
+</value>
+</block>
+</statement>
+<value name="IF1">
+<block type="gamepad_getProperty_Boolean" id="6B?EO_Q5k~r.dbOwswU+">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightBumper</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO1">
+<block type="revBlinkinLedDriver_setProperty_BlinkinPattern" id="A4V)lkMf:K,4MW5LsGZH">
+<field name="IDENTIFIER">blinkinAsRevBlinkinLedDriver</field>
+<field name="PROP">Pattern</field>
+<data>{"IDENTIFIER":"blinkin"}</data>
+<value name="VALUE">
+<block type="revBlinkinLedDriver_typedEnum_blinkinPatternSolid" id="|fz,Qa5[QK4!qKgY]1.q">
+<field name="BLINKIN_PATTERN">BLUE</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="revBlinkinLedDriver_typedEnum_blinkinPatternShot" id="lm.?4gSs6+tX)?)5Qee1" x="437" y="136">
+<field name="COLOR">RED</field>
+</block>
+<block type="revBlinkinLedDriver_setProperty_BlinkinPattern" id="i+Nk%3z~+`{UW8P/@O}i" x="540" y="203">
+<field name="IDENTIFIER">blinkinAsRevBlinkinLedDriver</field>
+<field name="PROP">Pattern</field>
+<data>{"IDENTIFIER":"blinkin"}</data>
+<value name="VALUE">
+<block type="revBlinkinLedDriver_typedEnum_blinkinPatternSolid" id="98/Tg6FKX|Z#_(j)F|%{">
+<field name="BLINKIN_PATTERN">RED</field>
+</block>
+</value>
+</block>
+<block type="revBlinkinLedDriver_setProperty_BlinkinPattern" id="%k,8y0dU6:n-EM]]mO5k" x="568" y="259">
+<field name="IDENTIFIER">blinkinAsRevBlinkinLedDriver</field>
+<field name="PROP">Pattern</field>
+<data>{"IDENTIFIER":"blinkin"}</data>
+<value name="VALUE">
+<block type="revBlinkinLedDriver_typedEnum_blinkinPatternSolid" id="zG/+~z)P$6.jIj4)}A^]">
+<field name="BLINKIN_PATTERN">RED</field>
+</block>
+</value>
+</block>
+<block type="revBlinkinLedDriver_typedEnum_blinkinPatternShot" id="67{1{4#*@()W7p#VnnV." x="469" y="339">
+<field name="COLOR">BLUE</field>
+</block>
+<block type="telemetry_update" id="exvivmft-pX$n!1,8Ea$" x="290" y="445"/>
+</xml><?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Extra><OpModeMeta flavor="TELEOP" group="" /><Enabled value="false" /></Extra>
